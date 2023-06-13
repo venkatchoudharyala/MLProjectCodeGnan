@@ -86,7 +86,7 @@ def main():
         st.dataframe(UserData)
         le = LabelEncoder()
         for column in UserData.columns:
-            if(column.dtype == object):
+            if(UserData[column].dtype == object):
                 TempVal = le.fit_transform(UserData[column].astype('category'))
                 UserData.drop(labels=[column], axis="columns", inplace=True)
                 UserData[column] = TempVal
