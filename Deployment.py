@@ -51,7 +51,7 @@ def main():
     YearsSinceLastPromotion = st.text_input("Years Since Last Promotion", "2")
     YearsWithCurrManager = st.text_input("Years with Current Manager", "2")
     UserData = pd.DataFrame({
-			'EmployeeID': [000000],
+      'EmployeeID': [000000],
       'Age': [Age],
       'AvgDailyHours': [AvgDailyHours],
       'Department': [Department],
@@ -80,7 +80,7 @@ def main():
       'YearsAtCompany': [YearsAtCompany],
       'YearsSinceLastPromotion': [YearsSinceLastPromotion],
       'YearsWithCurrManager': [YearsWithCurrManager]})
-		st.dataframe(UserData)
+    st.dataframe(UserData)
     le = LabelEncoder()
     for column in UserData.columns:
 			TempVal = le.fit_transform(UserData[column].astype('category'))
