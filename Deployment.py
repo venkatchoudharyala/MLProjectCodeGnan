@@ -96,7 +96,7 @@ def main():
                 UserData.drop(labels=[column], axis="columns", inplace=True)
                 UserData[column] = TempVal
             else:
-                continue
+                UserData[column] = UserData[Column]
         st.dataframe(UserData)
         LRPredicted = LRClassifier.predict(UserData)
         # Display the predictions
