@@ -87,6 +87,7 @@ WorkLoad = {
 def main():
     # Set the title and description of the app
     st.title("Workplace Stress Prediction")
+    st.markdown("---")
     st.subheader("Our Data")
     st.dataframe(data)
     st.write("This app predicts workplace stress based on user input.")
