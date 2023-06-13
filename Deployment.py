@@ -19,8 +19,6 @@ def load_data():
 data = load_data()
 
 # Streamlit App
-@st.experimental_singleton
-@st.cache_resource(experimental_allow_widgets=True)
 def main():
     # Set the title and description of the app
     st.title("Workplace Stress Prediction")
