@@ -178,6 +178,7 @@ def main():
             if LRPredicted == 1:
                 st.write("You are a bit STRESSED! Take some assistance..")
             else:
+                st.balloons()
                 st.write("You are perfectly alright. Keep Rocking!!")
 
 
