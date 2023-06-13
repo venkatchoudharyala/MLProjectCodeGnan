@@ -50,9 +50,9 @@ def main():
     UserData = pd.DataFrame({
     'EmployeeID': [000000],
     'Age': [Age],
-    'Education': [Education],
     'AvgDailyHours': [AvgDailyHours],
     'Department': [Department],
+    'Education': [Education],
     'EducationField': [EducationField],
     'Gender': [Gender],
     'HasFlexibleTimings': [HasFlexibleTimings],
