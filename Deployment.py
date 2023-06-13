@@ -33,7 +33,7 @@ def main():
         Age = int(st.number_input("Age", 22))
         Education = int(st.number_input("Education Level", 3))
         AvgDailyHours = int(st.number_input("Average Daily Hours", 8))
-        EducationField = st.selectbox("Department", ["Technical Degree", "Medical", "Human Resources", "Marketing", "Other"])
+        EducationField = st.selectbox("Department", ["Technical Degree", "Medical", "Human Resources", "Marketing", "Other"], index = 0)
         Department = st.selectbox("Education Field", ["Manufacturing Director", "Sales Representative", "Healthcare Representative", "Research Director", "Manager", "Human Resources", "Sales Executive", "Laboratory Technician", "Research Scientist"])
         Gender = st.selectbox("Gender", ["Male", "Female"])
         HasFlexibleTimings = st.selectbox("Has Flexible Timings", ["No", "Yes"])
