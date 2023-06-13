@@ -90,7 +90,7 @@ def main():
     st.markdown("---")
     st.subheader("Our Data")
     st.dataframe(data)
-    st.write("This app predicts workplace stress based on user input.")
+    st.title("This app predicts workplace stress based on user input.")
 
     with st.form(key="prediction_form"):
         st.write("Enter Your Details")
