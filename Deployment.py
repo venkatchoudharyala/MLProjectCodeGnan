@@ -4,8 +4,8 @@ import pickle
 from sklearn.preprocessing import LabelEncoder
 import plotly.graph_objects as go
 
-data = pd.read_csv("Train.csv")
-st.dataframe(data, delimiter = ";")
+data = pd.read_csv("Train.csv", delimiter = ";")
+st.dataframe(data)
 
 # Load the trained models
 DTClassifier = pickle.load(open('DecisionTree.pkl', 'rb'))
