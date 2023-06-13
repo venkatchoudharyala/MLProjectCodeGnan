@@ -81,15 +81,12 @@ def main():
       'YearsAtCompany': [YearsAtCompany],
       'YearsSinceLastPromotion': [YearsSinceLastPromotion],
       'YearsWithCurrManager': [YearsWithCurrManager]})
-
       le = LabelEncoder()
       for column in UserData.columns:
         TempVal = le.fit_transform(UserData[column].astype('category'))
         UserData.drop(labels=[column], axis="columns", inplace=True)
         UserData[column] = TempVal
-    
       LRPredicted = LRClassifier.predict(UserData)
-
       # Display the predictions
       st.subheader("Predictions")
       if(LRPredicted == 0):
