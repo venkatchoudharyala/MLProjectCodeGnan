@@ -169,7 +169,7 @@ def main():
             st.write("Preprocessed User Data")
             st.dataframe(PreProUserData)
 
-            LRPredicted = LRClassifier.predict(PreProUserData)
+            LRPredicted = RFClassifier.predict(PreProUserData)
 
             # Display the predictions
             st.subheader("Predictions")
