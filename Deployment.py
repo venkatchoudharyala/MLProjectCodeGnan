@@ -4,7 +4,7 @@ import pickle
 from sklearn.preprocessing import LabelEncoder
 import plotly.graph_objects as go
 
-data = pd.read_csv("path/to/your/dataset.csv")
+data = pd.read_csv("Dataset/Train.csv")
 
 fig = go.Figure(data=go.Scatter(
     x=data['X'],  # X-axis values
