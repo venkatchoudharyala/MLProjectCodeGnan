@@ -86,10 +86,11 @@ def main():
         st.dataframe(UserData)
         le = LabelEncoder()
         for column in UserData.columns:
-            TempVal = le.fit_transform(UserData[column].astype('category'))
-            UserData.drop(labels=[column], axis="columns", inplace=True)
-            UserData[column] = TempVal
-        st.dataframe(UserData)
+            if(column.dtype == object):
+                TempVal = le.fit_transform(UserData[column].astype('category'))
+                UserData.drop(labels=[column], axis="columns", inplace=True)
+                UserData[column] = TempVal
+                st.dataframe(UserData)
         LRPredicted = LRClassifier.predict(UserData)
         # Display the predictions
         st.subheader("Predictions")
