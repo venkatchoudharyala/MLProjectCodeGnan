@@ -20,7 +20,7 @@ def main():
     st.subheader("Our Data")
     st.dataframe(data)
     st.write("This app predicts workplace stress based on user input.")
-    if st.button("Predict Yours"):
+    if st.button("Predict Yours", key = "Entry"):
         st.write("Enter Your Details")
         # Create input fields for user to enter features
         Age = st.text_input("Age", "28")
