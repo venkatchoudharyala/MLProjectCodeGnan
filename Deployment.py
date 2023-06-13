@@ -4,9 +4,6 @@ import pickle
 from sklearn.preprocessing import LabelEncoder
 import plotly.graph_objects as go
 
-data = pd.read_csv("Train.csv", delimiter = ";")
-st.dataframe(data)
-
 # Load the trained models
 DTClassifier = pickle.load(open('DecisionTree.pkl', 'rb'))
 RFClassifier = pickle.load(open('RandomForest.pkl', 'rb'))
@@ -19,6 +16,9 @@ MLPC= pickle.load(open('MLPC.pkl', 'rb'))
 def main():
   # Set the title and description of the app
   st.title("Workplace Stress Prediction")
+  data = pd.read_csv("Train.csv", delimiter = ";")
+  st.subheader("Our Data")
+  st.dataframe(data)
   st.write("This app predicts workplace stress based on user input.")
   if st.button("Predict Your's"):
     # Create input fields for user to enter features
