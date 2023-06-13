@@ -21,7 +21,7 @@ def main():
   st.dataframe(data)
   st.write("This app predicts workplace stress based on user input.")
   if st.button("Predict Your's"):
-    # Create input fields for user to enter features
+		# Create input fields for user to enter features
     Age = st.text_input("Age", "28")
     Education = st.text_input("Education Level", "3")
     AvgDailyHours = st.text_input("Average Daily Hours", "8")
@@ -50,9 +50,8 @@ def main():
     YearsAtCompany = st.text_input("Years at Company", "2")
     YearsSinceLastPromotion = st.text_input("Years Since Last Promotion", "2")
     YearsWithCurrManager = st.text_input("Years with Current Manager", "2")
-    
     UserData = pd.DataFrame({
-      'EmployeeID': [000000],
+			'EmployeeID': [000000],
       'Age': [Age],
       'AvgDailyHours': [AvgDailyHours],
       'Department': [Department],
@@ -81,10 +80,10 @@ def main():
       'YearsAtCompany': [YearsAtCompany],
       'YearsSinceLastPromotion': [YearsSinceLastPromotion],
       'YearsWithCurrManager': [YearsWithCurrManager]})
-    st.dataframe(UserData)
+		st.dataframe(UserData)
     le = LabelEncoder()
     for column in UserData.columns:
-      TempVal = le.fit_transform(UserData[column].astype('category'))
+			TempVal = le.fit_transform(UserData[column].astype('category'))
       UserData.drop(labels=[column], axis="columns", inplace=True)
       UserData[column] = TempVal
       LRPredicted = LRClassifier.predict(UserData)
