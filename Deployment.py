@@ -122,7 +122,6 @@ def main():
         YearsAtCompany = int(st.number_input("Years at Company", 2))
         YearsSinceLastPromotion = int(st.number_input("Years Since Last Promotion", 2))
         YearsWithCurrManager = int(st.number_input("Years with Current Manager", 1))
-
         if st.form_submit_button("Predict"):
             UserData = pd.DataFrame({
                 'EmployeeID': [000000],
