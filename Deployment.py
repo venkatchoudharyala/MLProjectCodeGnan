@@ -3,9 +3,6 @@ import pandas as pd
 import pickle
 from sklearn.preprocessing import LabelEncoder
 
-# Call the function to set the background color
-set_page_bg_color("#000000")
-
 # Load the trained models
 DTClassifier = pickle.load(open('PickleFiles/DecisionTree.pkl', 'rb'))
 RFClassifier = pickle.load(open('PickleFiles/RandomForest.pkl', 'rb'))
