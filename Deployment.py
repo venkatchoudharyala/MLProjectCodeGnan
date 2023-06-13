@@ -13,7 +13,7 @@ LRClassifier = pickle.load(open('LogisticRegression.pkl', 'rb'))
 MLPC = pickle.load(open('MLPC.pkl', 'rb'))
 
 # Streamlit App
-@st.cache
+@st.cache(suppress_st_warning=True)
 def main():
     # Set the title and description of the app
     st.title("Workplace Stress Prediction")
