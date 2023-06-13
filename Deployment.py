@@ -3,18 +3,6 @@ import pandas as pd
 import pickle
 from sklearn.preprocessing import LabelEncoder
 
-# CSS
-def set_page_bg_color(color):
-    # Add custom CSS to change the background color
-    bg_color_css = f"""
-        <style>
-        body {{
-            background-color: {color};
-        }}
-        </style>
-    """
-    st.markdown(bg_color_css, unsafe_allow_html=True)
-
 # Call the function to set the background color
 set_page_bg_color("#000000")
 
