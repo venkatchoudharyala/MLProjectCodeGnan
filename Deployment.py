@@ -81,6 +81,7 @@ def main():
       'YearsAtCompany': [YearsAtCompany],
       'YearsSinceLastPromotion': [YearsSinceLastPromotion],
       'YearsWithCurrManager': [YearsWithCurrManager]})
+    st.dataframe(UserData)
     le = LabelEncoder()
     for column in UserData.columns:
       TempVal = le.fit_transform(UserData[column].astype('category'))
