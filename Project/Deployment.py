@@ -174,6 +174,7 @@ def main():
             LRPredicted = RFClassifier.predict(PreProUserData)
 
             # Display the predictions
+            with st.spinner("We'r all most there..")
             st.subheader("Predictions")
             if LRPredicted == 1:
                 st.write("You are a bit STRESSED! Take some assistance..")
