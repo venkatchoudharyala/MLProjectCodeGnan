@@ -19,6 +19,7 @@ def load_data():
 data = load_data()
 
 # Streamlit App
+@st.experimental_singleton
 def main():
     # Set the title and description of the app
     st.title("Workplace Stress Prediction")
