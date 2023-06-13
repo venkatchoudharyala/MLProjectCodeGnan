@@ -86,11 +86,11 @@ WorkLoad = {
 # Streamlit App
 def main():
     # Set the title and description of the app
-    st.header("Workplace Stress Prediction")
+    st.header("Workplace Stress Predicter")
     st.markdown("---")
     st.subheader("Our Data")
     st.dataframe(data)
-    st.title("This app predicts workplace stress based on user input.")
+    st.title("This app predicts workplace health")
 
     with st.form(key="prediction_form"):
         st.write("Enter Your Details")
