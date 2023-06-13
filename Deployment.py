@@ -3,7 +3,18 @@ import pandas as pd
 import pickle
 from sklearn.preprocessing import LabelEncoder
 
-set_background_color((0, 0, 0))
+# CSS
+st.markdown(
+    """
+    <style>
+    body {
+        background-color: black;
+        color: white;  # Set text color to white for better visibility on black background
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
 # Load the trained models
 DTClassifier = pickle.load(open('PickleFiles/DecisionTree.pkl', 'rb'))
