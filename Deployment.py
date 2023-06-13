@@ -13,14 +13,19 @@ LRClassifier = pickle.load(open('LogisticRegression.pkl', 'rb'))
 MLPC = pickle.load(open('MLPC.pkl', 'rb'))
 
 # Streamlit App
+@st.cache(suppress_st_warning=True)
+def load_data():
+    data = pd.read_csv("Train.csv", delimiter=";")
+    return data
+
 def main():
     # Set the title and description of the app
     st.title("Workplace Stress Prediction")
-    data = pd.read_csv("Train.csv", delimiter=";")
+    data = load_data()
     st.subheader("Our Data")
     st.dataframe(data)
     st.write("This app predicts workplace stress based on user input.")
-    if st.button("Predict Yours", key = "Entry"):
+    if st.button("Predict Yours", key="Entry"):
         st.write("Enter Your Details")
         # Create input fields for user to enter features
         Age = st.text_input("Age", "28")
@@ -86,14 +91,14 @@ def main():
         st.dataframe(UserData)
         le = LabelEncoder()
         for column in UserData.columns:
-            if(UserData[column].dtype == object):
+            if UserData[column].dtype == object:
                 TempVal = le.fit_transform(UserData[column].astype('category'))
                 UserData.drop(labels=[column], axis="columns", inplace=True)
                 UserData[column] = TempVal
         st.dataframe(UserData)
         LRPredicted = LRClassifier.predict(UserData)
         # Display the predictions
-        if st.button("Cotinue", key = "continue"):
+        if st.button("Continue", key="continue"):
             st.subheader("Predictions")
             if LRPredicted == 0:
                 st.write("You are a bit STRESSED! Take some assistance..")
