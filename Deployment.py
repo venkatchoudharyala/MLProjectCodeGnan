@@ -108,6 +108,7 @@ def main():
                 st.write("You are a bit STRESSED! Take some assistance..")
             else:
                 st.write("You are perfectly alright. Keep Rocking!!")
+            st.experimental_rerun()
 
 
 if __name__ == "__main__":
