@@ -87,13 +87,13 @@ def main():
       UserData.drop(labels=[column], axis="columns", inplace=True)
       UserData[column] = TempVal
       LRPredicted = LRClassifier.predict(UserData)
-     # Display the predictions
-     if st.button("Continue"):
-        st.subheader("Predictions")
-        if(LRPredicted == 0):
-          st.write("You are a bit STRESSED!, take some assistance..")
-        else:
-          st.write("You are perfectly alright keep Rocking!!")
+    # Display the predictions
+    if st.button("Continue"):
+      st.subheader("Predictions")
+      if(LRPredicted == 0):
+        st.write("You are a bit STRESSED!, take some assistance..")
+      else:
+        st.write("You are perfectly alright keep Rocking!!")
 
 if __name__ == "__main__":
     main()
