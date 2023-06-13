@@ -4,17 +4,7 @@ import pickle
 from sklearn.preprocessing import LabelEncoder
 
 # CSS
-st.markdown(
-    """
-    <style>
-    body {
-        background-color: black;
-        color: white;  # Set text color to white for better visibility on black background
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
+st.set_page_config(page_title="Stress Predictor App", layout="wide", initial_sidebar_state="auto", background_color="#000000")
 
 # Load the trained models
 DTClassifier = pickle.load(open('PickleFiles/DecisionTree.pkl', 'rb'))
