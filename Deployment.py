@@ -93,12 +93,11 @@ def main():
         for column in UserData.columns:
             if UserData[column].dtype == object:
                 TempVal = le.fit_transform(UserData[column].astype('category'))
-                UserData.drop(labels=[column], axis="columns", inplace=True)
-                UserData[column] = TempVal
+                PreProUserData[column] = TempVal
             else:
-                UserData[column] = UserData[Column]
-        st.dataframe(UserData)
-        LRPredicted = LRClassifier.predict(UserData)
+                PreProUserData[column] = UserData[Column]
+        st.dataframe(PreProUserData)
+        LRPredicted = LRClassifier.predict(PreProUserData)
         # Display the predictions
         if st.button("Continue", key="continue"):
             st.subheader("Predictions")
