@@ -5,12 +5,12 @@ import matplotlib.pyplot as plt
 from sklearn.preprocessing import LabelEncoder
 
 # Load the trained models
-DTClassifier = pickle.load(open('/content/drive/MyDrive/CodeGnan/DecisionTree.pkl', 'rb'))
-RFClassifier = pickle.load(open('/content/drive/MyDrive/CodeGnan/RandomForest.pkl', 'rb'))
-SVM = pickle.load(open('/content/drive/MyDrive/CodeGnan/SVM.pkl', 'rb'))
-KNN = pickle.load(open('/content/drive/MyDrive/CodeGnan/KNN.pkl', 'rb'))
-LRClassifier = pickle.load(open('/content/drive/MyDrive/CodeGnan/LogisticRegression.pkl', 'rb'))
-MLPC= pickle.load(open('/content/drive/MyDrive/CodeGnan/MLPC.pkl', 'rb'))
+DTClassifier = pickle.load(open('DecisionTree', 'rb'))
+RFClassifier = pickle.load(open('RandomForest.pkl', 'rb'))
+SVM = pickle.load(open('SVM.pkl', 'rb'))
+KNN = pickle.load(open('KNN.pkl', 'rb'))
+LRClassifier = pickle.load(open('LogisticRegression.pkl', 'rb'))
+MLPC= pickle.load(open('MLPC.pkl', 'rb'))
 
 # Streamlit App
 def main():
