@@ -4,7 +4,6 @@ import pickle
 from sklearn.preprocessing import LabelEncoder
 
 # CSS
-@st.cache(allow_output_mutation=True)
 def set_page_bg_color(color):
     # Add custom CSS to change the background color
     bg_color_css = f"""
