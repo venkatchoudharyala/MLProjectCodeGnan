@@ -124,7 +124,6 @@ def main():
         YearsWithCurrManager = int(st.number_input("Years with Current Manager", value = 1))
         if st.form_submit_button("Predict"):
             UserData = pd.DataFrame({
-                'EmployeeID': [000000],
                 'Age': [Age],
                 'AvgDailyHours': [AvgDailyHours],
                 'Department': [DptOpt[Department]],
