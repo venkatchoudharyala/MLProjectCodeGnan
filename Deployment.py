@@ -19,7 +19,7 @@ def load_data():
 data = load_data()
 
 # Define the mapping dictionaries for select boxes
-department_options = {
+education_field_options = {
     "Technical Degree": 0,
     "Medical": 1,
     "Human Resources": 2,
@@ -27,7 +27,7 @@ department_options = {
     "Other": 4
 }
 
-education_field_options = {
+department_options = {
     "Manufacturing Director": 0,
     "Sales Representative": 1,
     "Healthcare Representative": 2,
