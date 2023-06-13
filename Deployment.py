@@ -93,11 +93,12 @@ def main():
         st.dataframe(UserData)
         LRPredicted = LRClassifier.predict(UserData)
         # Display the predictions
-        st.subheader("Predictions")
-        if LRPredicted == 0:
-            st.write("You are a bit STRESSED! Take some assistance..")
-        else:
-            st.write("You are perfectly alright. Keep Rocking!!")
+        if st.button("Cotinue", key = "continue"):
+            st.subheader("Predictions")
+            if LRPredicted == 0:
+                st.write("You are a bit STRESSED! Take some assistance..")
+            else:
+                st.write("You are perfectly alright. Keep Rocking!!")
 
 
 if __name__ == "__main__":
