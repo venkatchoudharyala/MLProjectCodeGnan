@@ -4,6 +4,7 @@ import pickle
 from sklearn.preprocessing import LabelEncoder
 import plotly.graph_objects as go
 
+@st.cache
 # Load the trained models
 DTClassifier = pickle.load(open('DecisionTree.pkl', 'rb'))
 RFClassifier = pickle.load(open('RandomForest.pkl', 'rb'))
