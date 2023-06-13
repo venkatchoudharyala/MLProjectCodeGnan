@@ -4,6 +4,9 @@ import pickle
 from sklearn.preprocessing import LabelEncoder
 
 st.sidebar.title("Model Where Abouts..")
+
+Frame1, Frame2 = st.tabs(["About Our Data", "Predict Yours"])
+
 # Load the trained models
 DTClassifier = pickle.load(open('PickleFiles/DecisionTree.pkl', 'rb'))
 RFClassifier = pickle.load(open('PickleFiles/RandomForest.pkl', 'rb'))
@@ -88,8 +91,9 @@ def main():
     # Set the title and description of the app
     st.header("Workplace Stress Predicter")
     st.markdown("---")
-    st.subheader("Our Data")
-    st.dataframe(data)
+    with Frame1:
+        st.subheader("Our Data")
+        st.dataframe(data)
     st.title("This app predicts workplace health")
 
     with st.form(key="prediction_form"):
