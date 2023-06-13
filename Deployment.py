@@ -4,12 +4,12 @@ import pickle
 from sklearn.preprocessing import LabelEncoder
 
 # Load the trained models
-DTClassifier = pickle.load(open('DecisionTree.pkl', 'rb'))
-RFClassifier = pickle.load(open('RandomForest.pkl', 'rb'))
-SVM = pickle.load(open('SVM.pkl', 'rb'))
-KNN = pickle.load(open('KNN.pkl', 'rb'))
-LRClassifier = pickle.load(open('LogisticRegression.pkl', 'rb'))
-MLPC = pickle.load(open('MLPC.pkl', 'rb'))
+DTClassifier = pickle.load(open('PickleFiles/DecisionTree.pkl', 'rb'))
+RFClassifier = pickle.load(open('PickleFiles/RandomForest.pkl', 'rb'))
+SVM = pickle.load(open('PickleFiles/SVM.pkl', 'rb'))
+KNN = pickle.load(open('PickleFiles/KNN.pkl', 'rb'))
+LRClassifier = pickle.load(open('PickleFiles/LogisticRegression.pkl', 'rb'))
+MLPC = pickle.load(open('PickleFiles/MLPC.pkl', 'rb'))
 
 # Load the data
 @st.cache(suppress_st_warning=True)
