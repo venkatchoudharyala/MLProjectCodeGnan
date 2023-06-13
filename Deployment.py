@@ -28,7 +28,7 @@ def main():
     if st.button("Predict Yours", key="Entry"):
         st.write("Enter Your Details")
         # Create input fields for user to enter features
-        Age = st.text_input("Age", "28")
+        Age = st.text_input("Age", 28)
         Education = st.text_input("Education Level", "3")
         AvgDailyHours = st.text_input("Average Daily Hours", "8")
         EducationField = st.selectbox("Department", ["Technical Degree", "Medical", "Human Resources", "Marketing", "Other"])
