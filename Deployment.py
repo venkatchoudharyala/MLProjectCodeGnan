@@ -4,7 +4,6 @@ import pickle
 from sklearn.preprocessing import LabelEncoder
 import plotly.graph_objects as go
 
-@st.cache
 # Load the trained models
 DTClassifier = pickle.load(open('DecisionTree.pkl', 'rb'))
 RFClassifier = pickle.load(open('RandomForest.pkl', 'rb'))
@@ -14,6 +13,7 @@ LRClassifier = pickle.load(open('LogisticRegression.pkl', 'rb'))
 MLPC = pickle.load(open('MLPC.pkl', 'rb'))
 
 # Streamlit App
+@st.cache
 def main():
     # Set the title and description of the app
     st.title("Workplace Stress Prediction")
