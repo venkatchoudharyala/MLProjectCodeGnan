@@ -18,6 +18,70 @@ def load_data():
 
 data = load_data()
 
+# Define the mapping dictionaries for select boxes
+department_options = {
+    "Technical Degree": 0,
+    "Medical": 1,
+    "Human Resources": 2,
+    "Marketing": 3,
+    "Other": 4
+}
+
+education_field_options = {
+    "Manufacturing Director": 0,
+    "Sales Representative": 1,
+    "Healthcare Representative": 2,
+    "Research Director": 3,
+    "Manager": 4,
+    "Human Resources": 5,
+    "Sales Executive": 6,
+    "Laboratory Technician": 7,
+    "Research Scientist": 8
+}
+
+gender_options = {
+    "Male": 0,
+    "Female": 1
+}
+
+has_flexible_timings_options = {
+    "No": 0,
+    "Yes": 1
+}
+
+is_individual_contributor_options = {
+    "Yes": 0,
+    "No": 1
+}
+
+marital_status_options = {
+    "Divorced": 0,
+    "Married": 1,
+    "Single": 2
+}
+
+job_role_options = {
+    "Manager": 0,
+    "Engineer": 1,
+    "Analyst": 2,
+    "Sales": 3,
+    "HR": 4
+}
+
+remote_work_satisfaction_options = {
+    "Medium": 0,
+    "Very High": 1,
+    "High": 2,
+    "Low": 3,
+    "Very Low": 4
+}
+
+work_load_level_options = {
+    "Low": 0,
+    "High": 1,
+    "Medium": 2
+}
+
 # Streamlit App
 def main():
     # Set the title and description of the app
@@ -33,28 +97,28 @@ def main():
         Age = int(st.number_input("Age", 22))
         Education = int(st.number_input("Education Level", 3))
         AvgDailyHours = int(st.number_input("Average Daily Hours", 8))
-        EducationField = st.selectbox("Department", ["Technical Degree", "Medical", "Human Resources", "Marketing", "Other"], index = 0)
-        Department = st.selectbox("Education Field", ["Manufacturing Director", "Sales Representative", "Healthcare Representative", "Research Director", "Manager", "Human Resources", "Sales Executive", "Laboratory Technician", "Research Scientist"])
-        Gender = st.selectbox("Gender", ["Male", "Female"])
-        HasFlexibleTimings = st.selectbox("Has Flexible Timings", ["No", "Yes"])
-        IsIndividualContributor = st.selectbox("Is Individual Contributor", ["Yes", "No"])
+        EducationField = st.selectbox("Department", list(department_options.keys()))
+        Department = st.selectbox("Education Field", list(education_field_options.keys()))
+        Gender = st.selectbox("Gender", list(gender_options.keys()))
+        HasFlexibleTimings = st.selectbox("Has Flexible Timings", list(has_flexible_timings_options.keys()))
+        IsIndividualContributor = st.selectbox("Is Individual Contributor", list(is_individual_contributor_options.keys()))
         JobInvolvement = st.slider("Job Involvement", 1, 4, 2)
-        JobRole = st.selectbox("Job Role", ["Manager", "Engineer", "Analyst", "Sales", "HR"])
+        JobRole = st.selectbox("Job Role", list(job_role_options.keys()))
         JobSatisfaction = st.slider("Job Satisfaction", 1, 5, 3)
         LeavesTaken = int(st.number_input("Leaves Taken", 22))
-        MaritalStatus = st.selectbox("Marital Status", ["Divorced", "Married", "Single"])
+        MaritalStatus = st.selectbox("Marital Status", list(marital_status_options.keys()))
         MicromanagedAtWork = st.slider("Micromanaged at Work", 0, 10, 5)
         MonthlyIncome = int(st.number_input("Monthly Income", 25000))
         NumCompaniesWorked = int(st.number_input("Number of Companies Worked", 2))
         PercentSalaryHike = int(st.number_input("Percent Salary Hike", 45))
         PerformanceRating = st.slider("Performance Rating", 1, 5, 3)
         RelationshipSatisfaction = st.slider("Relationship Satisfaction", 1, 5, 3)
-        RemoteWorkSatisfaction = st.selectbox("Remote Work Satisfaction", ["Medium", "Very High", "High", "Low", "Very Low"])
+        RemoteWorkSatisfaction = st.selectbox("Remote Work Satisfaction", list(remote_work_satisfaction_options.keys()))
         SelfMotivationLevel = st.slider("Self Motivation Level", 1, 5, 3)
         TotalWorkingYears = int(st.number_input("Total Working Years", 2))
         TrainingTimesLastYear = int(st.number_input("Training Times Last Year", 3))
         WorkLifeBalance = st.slider("Work-Life Balance", 1, 5, 3)
-        WorkLoadLevel = st.selectbox("Work Load Level", ["Low", "High", "Medium"])
+        WorkLoadLevel = st.selectbox("Work Load Level", list(work_load_level_options.keys()))
         YearsAtCompany = int(st.number_input("Years at Company", 2))
         YearsSinceLastPromotion = int(st.number_input("Years Since Last Promotion", 2))
         YearsWithCurrManager = int(st.number_input("Years with Current Manager", 1))
@@ -64,29 +128,29 @@ def main():
                 'EmployeeID': [000000],
                 'Age': [Age],
                 'AvgDailyHours': [AvgDailyHours],
-                'Department': [Department],
+                'Department': [department_options[Department]],
                 'Education': [Education],
-                'EducationField': [EducationField],
-                'Gender': [Gender],
-                'HasFlexibleTimings': [HasFlexibleTimings],
-                'IsIndividualContributor': [IsIndividualContributor],
+                'EducationField': [education_field_options[EducationField]],
+                'Gender': [gender_options[Gender]],
+                'HasFlexibleTimings': [has_flexible_timings_options[HasFlexibleTimings]],
+                'IsIndividualContributor': [is_individual_contributor_options[IsIndividualContributor]],
                 'JobInvolvement': [JobInvolvement],
-                'JobRole': [JobRole],
+                'JobRole': [job_role_options[JobRole]],
                 'JobSatisfaction': [JobSatisfaction],
                 'LeavesTaken': [LeavesTaken],
-                'MaritalStatus': [MaritalStatus],
+                'MaritalStatus': [marital_status_options[MaritalStatus]],
                 'MicromanagedAtWork': [MicromanagedAtWork],
                 'MonthlyIncome': [MonthlyIncome],
                 'NumCompaniesWorked': [NumCompaniesWorked],
                 'PercentSalaryHike': [PercentSalaryHike],
                 'PerformanceRating': [PerformanceRating],
                 'RelationshipSatisfaction': [RelationshipSatisfaction],
-                'RemoteWorkSatistfaction': [RemoteWorkSatisfaction],
+                'RemoteWorkSatistfaction': [remote_work_satisfaction_options[RemoteWorkSatisfaction]],
                 'SelfMotivationLevel': [SelfMotivationLevel],
                 'TotalWorkingYears': [TotalWorkingYears],
                 'TrainingTimesLastYear': [TrainingTimesLastYear],
                 'WorkLifeBalance': [WorkLifeBalance],
-                'WorkLoadLevel': [WorkLoadLevel],
+                'WorkLoadLevel': [work_load_level_options[WorkLoadLevel]],
                 'YearsAtCompany': [YearsAtCompany],
                 'YearsSinceLastPromotion': [YearsSinceLastPromotion],
                 'YearsWithCurrManager': [YearsWithCurrManager]
