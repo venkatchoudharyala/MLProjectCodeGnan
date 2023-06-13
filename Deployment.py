@@ -60,7 +60,7 @@ Married = {
     "Single": 2
 }
 
-JobRole = {
+JobRoleOpt = {
     "Manager": 0,
     "Engineer": 1,
     "Analyst": 2,
@@ -103,7 +103,7 @@ def main():
         HasFlexibleTimings = st.selectbox("Has Flexible Timings", list(FlexTime.keys()))
         IsIndividualContributor = st.selectbox("Is Individual Contributor", list(ContrInd.keys()))
         JobInvolvement = st.slider("Job Involvement", 1, 4, 2)
-        JobRole = st.selectbox("Job Role", list(JobRole.keys()))
+        JobRole = st.selectbox("Job Role", list(JobRoleOpt.keys()))
         JobSatisfaction = st.slider("Job Satisfaction", 1, 5, 3)
         LeavesTaken = int(st.number_input("Leaves Taken", 22))
         MaritalStatus = st.selectbox("Marital Status", list(Married.keys()))
