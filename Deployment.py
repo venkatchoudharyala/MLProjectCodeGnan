@@ -90,7 +90,7 @@ def main():
                 TempVal = le.fit_transform(UserData[column].astype('category'))
                 UserData.drop(labels=[column], axis="columns", inplace=True)
                 UserData[column] = TempVal
-                st.dataframe(UserData)
+        st.dataframe(UserData)
         LRPredicted = LRClassifier.predict(UserData)
         # Display the predictions
         st.subheader("Predictions")
