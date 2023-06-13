@@ -17,11 +17,11 @@ MLPC = pickle.load(open('MLPC.pkl', 'rb'))
 def load_data():
     data = pd.read_csv("Train.csv", delimiter=";")
     return data
+data = load_data()
 
 def main():
     # Set the title and description of the app
     st.title("Workplace Stress Prediction")
-    data = load_data()
     st.subheader("Our Data")
     st.dataframe(data)
     st.write("This app predicts workplace stress based on user input.")
