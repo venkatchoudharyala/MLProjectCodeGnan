@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 import pickle
 from sklearn.preprocessing import LabelEncoder
-import plotly.graph_objects as go
 
 # Load the trained models
 DTClassifier = pickle.load(open('DecisionTree.pkl', 'rb'))
@@ -12,13 +11,14 @@ KNN = pickle.load(open('KNN.pkl', 'rb'))
 LRClassifier = pickle.load(open('LogisticRegression.pkl', 'rb'))
 MLPC = pickle.load(open('MLPC.pkl', 'rb'))
 
-# Streamlit App
+# Load the data
 @st.cache(suppress_st_warning=True)
 def load_data():
-    data = pd.read_csv("Train.csv", delimiter=";")
-    return data
+    return pd.read_csv("Train.csv", delimiter=";")
+
 data = load_data()
 
+# Streamlit App
 def main():
     # Set the title and description of the app
     st.title("Workplace Stress Prediction")
