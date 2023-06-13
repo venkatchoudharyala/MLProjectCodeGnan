@@ -95,6 +95,8 @@ def main():
                 TempVal = le.fit_transform(UserData[column].astype('category'))
                 UserData.drop(labels=[column], axis="columns", inplace=True)
                 UserData[column] = TempVal
+            else:
+                continue
         st.dataframe(UserData)
         LRPredicted = LRClassifier.predict(UserData)
         # Display the predictions
