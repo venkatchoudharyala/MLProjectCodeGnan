@@ -68,7 +68,7 @@ def main():
     'PercentSalaryHike': [PercentSalaryHike],
     'PerformanceRating': [PerformanceRating],
     'RelationshipSatisfaction': [RelationshipSatisfaction],
-    'RemoteWorkSatisfaction': [RemoteWorkSatisfaction],
+    'RemoteWorkSatistfaction': [RemoteWorkSatisfaction],
     'SelfMotivationLevel': [SelfMotivationLevel],
     'TotalWorkingYears': [TotalWorkingYears],
     'TrainingTimesLastYear': [TrainingTimesLastYear],
