@@ -96,7 +96,7 @@ def main():
                 TempVal = le.fit_transform(UserData[column].astype('category'))
                 PreProUserData[column] = TempVal
             else:
-                PreProUserData[column] = UserData[Column]
+                PreProUserData[column] = UserData[column]
         st.dataframe(PreProUserData)
         LRPredicted = LRClassifier.predict(PreProUserData)
         # Display the predictions
