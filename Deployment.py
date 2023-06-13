@@ -13,13 +13,13 @@ MLPC = pickle.load(open('MLPC.pkl', 'rb'))
 
 # Load the data
 @st.cache(suppress_st_warning=True)
-def load_data():
+def LoadData():
     return pd.read_csv("Train.csv", delimiter=";")
 
-data = load_data()
+data = LoadData()
 
 # Define the mapping dictionaries for select boxes
-education_field_options = {
+EduFielOpt = {
     "Technical Degree": 0,
     "Medical": 1,
     "Human Resources": 2,
@@ -27,7 +27,7 @@ education_field_options = {
     "Other": 4
 }
 
-department_options = {
+DptOpt = {
     "Manufacturing Director": 0,
     "Sales Representative": 1,
     "Healthcare Representative": 2,
@@ -39,28 +39,28 @@ department_options = {
     "Research Scientist": 8
 }
 
-gender_options = {
+GenOpt = {
     "Male": 0,
     "Female": 1
 }
 
-has_flexible_timings_options = {
+FlexTime = {
     "No": 0,
     "Yes": 1
 }
 
-is_individual_contributor_options = {
+ContrInd = {
     "Yes": 0,
     "No": 1
 }
 
-marital_status_options = {
+Married = {
     "Divorced": 0,
     "Married": 1,
     "Single": 2
 }
 
-job_role_options = {
+JobRole = {
     "Manager": 0,
     "Engineer": 1,
     "Analyst": 2,
@@ -68,7 +68,7 @@ job_role_options = {
     "HR": 4
 }
 
-remote_work_satisfaction_options = {
+RemWork = {
     "Medium": 0,
     "Very High": 1,
     "High": 2,
@@ -76,7 +76,7 @@ remote_work_satisfaction_options = {
     "Very Low": 4
 }
 
-work_load_level_options = {
+WorkLoad = {
     "Low": 0,
     "High": 1,
     "Medium": 2
@@ -97,28 +97,28 @@ def main():
         Age = int(st.number_input("Age", 22))
         Education = int(st.number_input("Education Level", 3))
         AvgDailyHours = int(st.number_input("Average Daily Hours", 8))
-        Department = st.selectbox("Department", list(department_options.keys()))
-        EducationField = st.selectbox("Education Field", list(education_field_options.keys()))
-        Gender = st.selectbox("Gender", list(gender_options.keys()))
-        HasFlexibleTimings = st.selectbox("Has Flexible Timings", list(has_flexible_timings_options.keys()))
-        IsIndividualContributor = st.selectbox("Is Individual Contributor", list(is_individual_contributor_options.keys()))
+        Department = st.selectbox("Department", list(DptOpt.keys()))
+        EducationField = st.selectbox("Education Field", list(EduFielOpt.keys()))
+        Gender = st.selectbox("Gender", list(GenOpt.keys()))
+        HasFlexibleTimings = st.selectbox("Has Flexible Timings", list(FlexTime.keys()))
+        IsIndividualContributor = st.selectbox("Is Individual Contributor", list(ContrInd.keys()))
         JobInvolvement = st.slider("Job Involvement", 1, 4, 2)
-        JobRole = st.selectbox("Job Role", list(job_role_options.keys()))
+        JobRole = st.selectbox("Job Role", list(JobRole.keys()))
         JobSatisfaction = st.slider("Job Satisfaction", 1, 5, 3)
         LeavesTaken = int(st.number_input("Leaves Taken", 22))
-        MaritalStatus = st.selectbox("Marital Status", list(marital_status_options.keys()))
+        MaritalStatus = st.selectbox("Marital Status", list(Married.keys()))
         MicromanagedAtWork = st.slider("Micromanaged at Work", 0, 10, 5)
         MonthlyIncome = int(st.number_input("Monthly Income", 25000))
         NumCompaniesWorked = int(st.number_input("Number of Companies Worked", 2))
         PercentSalaryHike = int(st.number_input("Percent Salary Hike", 45))
         PerformanceRating = st.slider("Performance Rating", 1, 5, 3)
         RelationshipSatisfaction = st.slider("Relationship Satisfaction", 1, 5, 3)
-        RemoteWorkSatisfaction = st.selectbox("Remote Work Satisfaction", list(remote_work_satisfaction_options.keys()))
+        RemoteWorkSatisfaction = st.selectbox("Remote Work Satisfaction", list(RemWork.keys()))
         SelfMotivationLevel = st.slider("Self Motivation Level", 1, 5, 3)
         TotalWorkingYears = int(st.number_input("Total Working Years", 2))
         TrainingTimesLastYear = int(st.number_input("Training Times Last Year", 3))
         WorkLifeBalance = st.slider("Work-Life Balance", 1, 5, 3)
-        WorkLoadLevel = st.selectbox("Work Load Level", list(work_load_level_options.keys()))
+        WorkLoadLevel = st.selectbox("Work Load Level", list(WorkLoad.keys()))
         YearsAtCompany = int(st.number_input("Years at Company", 2))
         YearsSinceLastPromotion = int(st.number_input("Years Since Last Promotion", 2))
         YearsWithCurrManager = int(st.number_input("Years with Current Manager", 1))
