@@ -174,7 +174,7 @@ def main():
 
             # Display the predictions
             st.subheader("Predictions")
-            if LRPredicted == 0:
+            if LRPredicted == 1:
                 st.write("You are a bit STRESSED! Take some assistance..")
             else:
                 st.write("You are perfectly alright. Keep Rocking!!")
