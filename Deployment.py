@@ -90,6 +90,7 @@ def main():
         st.write("Your Details")
         st.dataframe(UserData)
         le = LabelEncoder()
+        PreProUserData = pd.DataFrame()
         for column in UserData.columns:
             if UserData[column].dtype == object:
                 TempVal = le.fit_transform(UserData[column].astype('category'))
