@@ -25,12 +25,14 @@ def main():
     st.subheader("Our Data")
     st.dataframe(data)
     st.write("This app predicts workplace stress based on user input.")
-    if st.button("Predict Yours", key="Entry"):
+
+    with st.form(key="prediction_form"):
         st.write("Enter Your Details")
+
         # Create input fields for user to enter features
-        Age = int(st.text_input("Age", 28))
-        Education = int(st.text_input("Education Level", 3))
-        AvgDailyHours = int(st.text_input("Average Daily Hours", 8))
+        Age = st.number_input("Age", min_value=0)
+        Education = st.number_input("Education Level", min_value=0)
+        AvgDailyHours = st.number_input("Average Daily Hours", min_value=0)
         EducationField = st.selectbox("Department", ["Technical Degree", "Medical", "Human Resources", "Marketing", "Other"])
         Department = st.selectbox("Education Field", ["Manufacturing Director", "Sales Representative", "Healthcare Representative", "Research Director", "Manager", "Human Resources", "Sales Executive", "Laboratory Technician", "Research Scientist"])
         Gender = st.selectbox("Gender", ["Male", "Female"])
@@ -39,74 +41,80 @@ def main():
         JobInvolvement = st.slider("Job Involvement", 1, 4, 2)
         JobRole = st.selectbox("Job Role", ["Manager", "Engineer", "Analyst", "Sales", "HR"])
         JobSatisfaction = st.slider("Job Satisfaction", 1, 5, 3)
-        LeavesTaken = int(st.text_input("Leaves Taken", 15))
+        LeavesTaken = st.number_input("Leaves Taken", min_value=0)
         MaritalStatus = st.selectbox("Marital Status", ["Divorced", "Married", "Single"])
         MicromanagedAtWork = st.slider("Micromanaged at Work", 0, 10, 5)
-        MonthlyIncome = int(st.text_input("Monthly Income", 25000))
-        NumCompaniesWorked = int(st.text_input("Number of Companies Worked", 2))
-        PercentSalaryHike = int(st.text_input("Percent Salary Hike", 45))
+        MonthlyIncome = st.number_input("Monthly Income", min_value=0)
+        NumCompaniesWorked = st.number_input("Number of Companies Worked", min_value=0)
+        PercentSalaryHike = st.number_input("Percent Salary Hike", min_value=0)
         PerformanceRating = st.slider("Performance Rating", 1, 5, 3)
         RelationshipSatisfaction = st.slider("Relationship Satisfaction", 1, 5, 3)
         RemoteWorkSatisfaction = st.selectbox("Remote Work Satisfaction", ["Medium", "Very High", "High", "Low", "Very Low"])
         SelfMotivationLevel = st.slider("Self Motivation Level", 1, 5, 3)
-        TotalWorkingYears = int(st.text_input("Total Working Years", 5))
-        TrainingTimesLastYear = int(st.text_input("Training Times Last Year", 6))
+        TotalWorkingYears = st.number_input("Total Working Years", min_value=0)
+        TrainingTimesLastYear = st.number_input("Training Times Last Year", min_value=0)
         WorkLifeBalance = st.slider("Work-Life Balance", 1, 5, 3)
         WorkLoadLevel = st.selectbox("Work Load Level", ["Low", "High", "Medium"])
-        YearsAtCompany = int(st.text_input("Years at Company", 2))
-        YearsSinceLastPromotion = int(st.text_input("Years Since Last Promotion", 2))
-        YearsWithCurrManager = int(st.text_input("Years with Current Manager", 2))
-        UserData = pd.DataFrame({
-            'EmployeeID': [000000],
-            'Age': [Age],
-            'AvgDailyHours': [AvgDailyHours],
-            'Department': [Department],
-            'Education': [Education],
-            'EducationField': [EducationField],
-            'Gender': [Gender],
-            'HasFlexibleTimings': [HasFlexibleTimings],
-            'IsIndividualContributor': [IsIndividualContributor],
-            'JobInvolvement': [JobInvolvement],
-            'JobRole': [JobRole],
-            'JobSatisfaction': [JobSatisfaction],
-            'LeavesTaken': [LeavesTaken],
-            'MaritalStatus': [MaritalStatus],
-            'MicromanagedAtWork': [MicromanagedAtWork],
-            'MonthlyIncome': [MonthlyIncome],
-            'NumCompaniesWorked': [NumCompaniesWorked],
-            'PercentSalaryHike': [PercentSalaryHike],
-            'PerformanceRating': [PerformanceRating],
-            'RelationshipSatisfaction': [RelationshipSatisfaction],
-            'RemoteWorkSatistfaction': [RemoteWorkSatisfaction],
-            'SelfMotivationLevel': [SelfMotivationLevel],
-            'TotalWorkingYears': [TotalWorkingYears],
-            'TrainingTimesLastYear': [TrainingTimesLastYear],
-            'WorkLifeBalance': [WorkLifeBalance],
-            'WorkLoadLevel': [WorkLoadLevel],
-            'YearsAtCompany': [YearsAtCompany],
-            'YearsSinceLastPromotion': [YearsSinceLastPromotion],
-            'YearsWithCurrManager': [YearsWithCurrManager]
-        })
-        st.write("Your Details")
-        st.dataframe(UserData)
-        le = LabelEncoder()
-        PreProUserData = pd.DataFrame()
-        for column in UserData.columns:
-            if UserData[column].dtype == object:
-                TempVal = le.fit_transform(UserData[column].astype('category'))
-                PreProUserData[column] = TempVal
-            else:
-                PreProUserData[column] = UserData[column]
-        st.dataframe(PreProUserData)
-        LRPredicted = LRClassifier.predict(PreProUserData)
-        # Display the predictions
-        if st.button("Continue", key="continue"):
+        YearsAtCompany = st.number_input("Years at Company", min_value=0)
+        YearsSinceLastPromotion = st.number_input("Years Since Last Promotion", min_value=0)
+        YearsWithCurrManager = st.number_input("Years with Current Manager", min_value=0)
+
+        if st.form_submit_button("Predict"):
+            UserData = pd.DataFrame({
+                'EmployeeID': [000000],
+                'Age': [Age],
+                'AvgDailyHours': [AvgDailyHours],
+                'Department': [Department],
+                'Education': [Education],
+                'EducationField': [EducationField],
+                'Gender': [Gender],
+                'HasFlexibleTimings': [HasFlexibleTimings],
+                'IsIndividualContributor': [IsIndividualContributor],
+                'JobInvolvement': [JobInvolvement],
+                'JobRole': [JobRole],
+                'JobSatisfaction': [JobSatisfaction],
+                'LeavesTaken': [LeavesTaken],
+                'MaritalStatus': [MaritalStatus],
+                'MicromanagedAtWork': [MicromanagedAtWork],
+                'MonthlyIncome': [MonthlyIncome],
+                'NumCompaniesWorked': [NumCompaniesWorked],
+                'PercentSalaryHike': [PercentSalaryHike],
+                'PerformanceRating': [PerformanceRating],
+                'RelationshipSatisfaction': [RelationshipSatisfaction],
+                'RemoteWorkSatistfaction': [RemoteWorkSatisfaction],
+                'SelfMotivationLevel': [SelfMotivationLevel],
+                'TotalWorkingYears': [TotalWorkingYears],
+                'TrainingTimesLastYear': [TrainingTimesLastYear],
+                'WorkLifeBalance': [WorkLifeBalance],
+                'WorkLoadLevel': [WorkLoadLevel],
+                'YearsAtCompany': [YearsAtCompany],
+                'YearsSinceLastPromotion': [YearsSinceLastPromotion],
+                'YearsWithCurrManager': [YearsWithCurrManager]
+            })
+
+            st.write("Your Details")
+            st.dataframe(UserData)
+
+            le = LabelEncoder()
+            PreProUserData = pd.DataFrame()
+            for column in UserData.columns:
+                if UserData[column].dtype == object:
+                    TempVal = le.fit_transform(UserData[column].astype('category'))
+                    PreProUserData[column] = TempVal
+                else:
+                    PreProUserData[column] = UserData[column]
+
+            st.write("Preprocessed User Data")
+            st.dataframe(PreProUserData)
+
+            LRPredicted = LRClassifier.predict(PreProUserData)
+
+            # Display the predictions
             st.subheader("Predictions")
             if LRPredicted == 0:
                 st.write("You are a bit STRESSED! Take some assistance..")
             else:
                 st.write("You are perfectly alright. Keep Rocking!!")
-            st.experimental_rerun()
 
 
 if __name__ == "__main__":
