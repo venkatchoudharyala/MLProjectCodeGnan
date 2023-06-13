@@ -177,7 +177,7 @@ def main():
             with st.spinner("We'r all most there.."):
                 st.subheader("Predictions")
                 if LRPredicted == 1:
-                    st.write("You are a bit STRESSED! Take some assistance..")
+                    st.warning("You are a bit STRESSED! Take some assistance..")
                 else:
                     st.balloons()
                     st.write("You are perfectly alright. Keep Rocking!!")
