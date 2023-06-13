@@ -50,49 +50,50 @@ def main():
     YearsAtCompany = st.text_input("Years at Company", "2")
     YearsSinceLastPromotion = st.text_input("Years Since Last Promotion", "2")
     YearsWithCurrManager = st.text_input("Years with Current Manager", "2")
-    if st.button("Continue"):
-      UserData = pd.DataFrame({
-        'EmployeeID': [000000],
-        'Age': [Age],
-        'AvgDailyHours': [AvgDailyHours],
-        'Department': [Department],
-        'Education': [Education],
-        'EducationField': [EducationField],
-        'Gender': [Gender],
-        'HasFlexibleTimings': [HasFlexibleTimings],
-        'IsIndividualContributor': [IsIndividualContributor],
-        'JobInvolvement': [JobInvolvement],
-        'JobRole': [JobRole],
-        'JobSatisfaction': [JobSatisfaction],
-        'LeavesTaken': [LeavesTaken],
-        'MaritalStatus': [MaritalStatus],
-        'MicromanagedAtWork': [MicromanagedAtWork],
-        'MonthlyIncome': [MonthlyIncome],
-        'NumCompaniesWorked': [NumCompaniesWorked],
-        'PercentSalaryHike': [PercentSalaryHike],
-        'PerformanceRating': [PerformanceRating],
-        'RelationshipSatisfaction': [RelationshipSatisfaction],
-        'RemoteWorkSatistfaction': [RemoteWorkSatisfaction],
-        'SelfMotivationLevel': [SelfMotivationLevel],
-        'TotalWorkingYears': [TotalWorkingYears],
-        'TrainingTimesLastYear': [TrainingTimesLastYear],
-        'WorkLifeBalance': [WorkLifeBalance],
-        'WorkLoadLevel': [WorkLoadLevel],
-        'YearsAtCompany': [YearsAtCompany],
-        'YearsSinceLastPromotion': [YearsSinceLastPromotion],
-        'YearsWithCurrManager': [YearsWithCurrManager]})
+    
+    UserData = pd.DataFrame({
+      'EmployeeID': [000000],
+      'Age': [Age],
+      'AvgDailyHours': [AvgDailyHours],
+      'Department': [Department],
+      'Education': [Education],
+      'EducationField': [EducationField],
+      'Gender': [Gender],
+      'HasFlexibleTimings': [HasFlexibleTimings],
+      'IsIndividualContributor': [IsIndividualContributor],
+      'JobInvolvement': [JobInvolvement],
+      'JobRole': [JobRole],
+      'JobSatisfaction': [JobSatisfaction],
+      'LeavesTaken': [LeavesTaken],
+      'MaritalStatus': [MaritalStatus],
+      'MicromanagedAtWork': [MicromanagedAtWork],
+      'MonthlyIncome': [MonthlyIncome],
+      'NumCompaniesWorked': [NumCompaniesWorked],
+      'PercentSalaryHike': [PercentSalaryHike],
+      'PerformanceRating': [PerformanceRating],
+      'RelationshipSatisfaction': [RelationshipSatisfaction],
+      'RemoteWorkSatistfaction': [RemoteWorkSatisfaction],
+      'SelfMotivationLevel': [SelfMotivationLevel],
+      'TotalWorkingYears': [TotalWorkingYears],
+      'TrainingTimesLastYear': [TrainingTimesLastYear],
+      'WorkLifeBalance': [WorkLifeBalance],
+      'WorkLoadLevel': [WorkLoadLevel],
+      'YearsAtCompany': [YearsAtCompany],
+      'YearsSinceLastPromotion': [YearsSinceLastPromotion],
+      'YearsWithCurrManager': [YearsWithCurrManager]})
       le = LabelEncoder()
       for column in UserData.columns:
         TempVal = le.fit_transform(UserData[column].astype('category'))
         UserData.drop(labels=[column], axis="columns", inplace=True)
         UserData[column] = TempVal
       LRPredicted = LRClassifier.predict(UserData)
-      # Display the predictions
-      st.subheader("Predictions")
-      if(LRPredicted == 0):
-        st.write("You are a bit STRESSED!, take some assistance..")
-      else:
-        st.write("You are perfectly alright keep Rocking!!")
+     # Display the predictions
+     if st.button("Continue"):
+        st.subheader("Predictions")
+        if(LRPredicted == 0):
+          st.write("You are a bit STRESSED!, take some assistance..")
+        else:
+          st.write("You are perfectly alright keep Rocking!!")
 
 if __name__ == "__main__":
     main()
