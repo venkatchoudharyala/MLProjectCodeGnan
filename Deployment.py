@@ -4,7 +4,7 @@ import pickle
 from sklearn.preprocessing import LabelEncoder
 
 # Load the trained models
-DTClassifier = pickle.load(open('DecisionTree', 'rb'))
+DTClassifier = pickle.load(open('DecisionTree.pkl', 'rb'))
 RFClassifier = pickle.load(open('RandomForest.pkl', 'rb'))
 SVM = pickle.load(open('SVM.pkl', 'rb'))
 KNN = pickle.load(open('KNN.pkl', 'rb'))
