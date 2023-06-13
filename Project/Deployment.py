@@ -96,7 +96,7 @@ def main():
 
         # Create input fields for user to enter features
         Age = int(st.number_input("Age", value = 22))
-        Education = int(st.number_input("Education Level", value = 3))
+        Education = st.slider("Education Level", 1,3,5)
         AvgDailyHours = int(st.number_input("Average Daily Hours", value = 8))
         Department = st.selectbox("Department", list(DptOpt.keys()))
         EducationField = st.selectbox("Education Field", list(EduFielOpt.keys()))
