@@ -12,15 +12,6 @@ KNN = pickle.load(open('KNN.pkl', 'rb'))
 LRClassifier = pickle.load(open('LogisticRegression.pkl', 'rb'))
 MLPC = pickle.load(open('MLPC.pkl', 'rb'))
 
-# Preprocess the user input data
-def preprocess_data(UserData):
-    le = LabelEncoder()
-    for column in UserData.columns:
-        TempVal = le.fit_transform(UserData[column].astype('category'))
-        UserData.drop(labels=[column], axis="columns", inplace=True)
-        UserData[column] = TempVal
-    return UserData
-
 # Streamlit App
 def main():
     # Set the title and description of the app
@@ -29,7 +20,6 @@ def main():
     st.subheader("Our Data")
     st.dataframe(data)
     st.write("This app predicts workplace stress based on user input.")
-
     if st.button("Predict Yours"):
         # Create input fields for user to enter features
         Age = st.text_input("Age", "28")
@@ -60,50 +50,51 @@ def main():
         YearsAtCompany = st.text_input("Years at Company", "2")
         YearsSinceLastPromotion = st.text_input("Years Since Last Promotion", "2")
         YearsWithCurrManager = st.text_input("Years with Current Manager", "2")
+        UserData = pd.DataFrame({
+            'EmployeeID': [000000],
+            'Age': [Age],
+            'AvgDailyHours': [AvgDailyHours],
+            'Department': [Department],
+            'Education': [Education],
+            'EducationField': [EducationField],
+            'Gender': [Gender],
+            'HasFlexibleTimings': [HasFlexibleTimings],
+            'IsIndividualContributor': [IsIndividualContributor],
+            'JobInvolvement': [JobInvolvement],
+            'JobRole': [JobRole],
+            'JobSatisfaction': [JobSatisfaction],
+            'LeavesTaken': [LeavesTaken],
+            'MaritalStatus': [MaritalStatus],
+            'MicromanagedAtWork': [MicromanagedAtWork],
+            'MonthlyIncome': [MonthlyIncome],
+            'NumCompaniesWorked': [NumCompaniesWorked],
+            'PercentSalaryHike': [PercentSalaryHike],
+            'PerformanceRating': [PerformanceRating],
+            'RelationshipSatisfaction': [RelationshipSatisfaction],
+            'RemoteWorkSatistfaction': [RemoteWorkSatisfaction],
+            'SelfMotivationLevel': [SelfMotivationLevel],
+            'TotalWorkingYears': [TotalWorkingYears],
+            'TrainingTimesLastYear': [TrainingTimesLastYear],
+            'WorkLifeBalance': [WorkLifeBalance],
+            'WorkLoadLevel': [WorkLoadLevel],
+            'YearsAtCompany': [YearsAtCompany],
+            'YearsSinceLastPromotion': [YearsSinceLastPromotion],
+            'YearsWithCurrManager': [YearsWithCurrManager]
+        })
+        st.dataframe(UserData)
+        le = LabelEncoder()
+        for column in UserData.columns:
+            TempVal = le.fit_transform(UserData[column].astype('category'))
+            UserData.drop(labels=[column], axis="columns", inplace=True)
+            UserData[column] = TempVal
+        LRPredicted = LRClassifier.predict(UserData)
+        # Display the predictions
+        st.subheader("Predictions")
+        if LRPredicted == 0:
+            st.write("You are a bit STRESSED! Take some assistance..")
+        else:
+            st.write("You are perfectly alright. Keep Rocking!!")
 
-        if st.button("Continue"):
-            UserData = pd.DataFrame({
-                'EmployeeID': [000000],
-                'Age': [Age],
-                'AvgDailyHours': [AvgDailyHours],
-                'Department': [Department],
-                'Education': [Education],
-                'EducationField': [EducationField],
-                'Gender': [Gender],
-                'HasFlexibleTimings': [HasFlexibleTimings],
-                'IsIndividualContributor': [IsIndividualContributor],
-                'JobInvolvement': [JobInvolvement],
-                'JobRole': [JobRole],
-                'JobSatisfaction': [JobSatisfaction],
-                'LeavesTaken': [LeavesTaken],
-                'MaritalStatus': [MaritalStatus],
-                'MicromanagedAtWork': [MicromanagedAtWork],
-                'MonthlyIncome': [MonthlyIncome],
-                'NumCompaniesWorked': [NumCompaniesWorked],
-                'PercentSalaryHike': [PercentSalaryHike],
-                'PerformanceRating': [PerformanceRating],
-                'RelationshipSatisfaction': [RelationshipSatisfaction],
-                'RemoteWorkSatistfaction': [RemoteWorkSatisfaction],
-                'SelfMotivationLevel': [SelfMotivationLevel],
-                'TotalWorkingYears': [TotalWorkingYears],
-                'TrainingTimesLastYear': [TrainingTimesLastYear],
-                'WorkLifeBalance': [WorkLifeBalance],
-                'WorkLoadLevel': [WorkLoadLevel],
-                'YearsAtCompany': [YearsAtCompany],
-                'YearsSinceLastPromotion': [YearsSinceLastPromotion],
-                'YearsWithCurrManager': [YearsWithCurrManager]
-            })
-
-            UserData = preprocess_data(UserData)
-
-            LRPredicted = LRClassifier.predict(UserData)
-
-            # Display the predictions
-            st.subheader("Predictions")
-            if LRPredicted == 0:
-                st.write("You are a bit STRESSED! Take some assistance..")
-            else:
-                st.write("You are perfectly alright. Keep Rocking!!")
 
 if __name__ == "__main__":
     main()
