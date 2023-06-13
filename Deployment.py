@@ -4,16 +4,20 @@ import pickle
 from sklearn.preprocessing import LabelEncoder
 
 # CSS
-st.markdown(
+@st.cache(allow_output_mutation=True)
+def set_page_bg_color(color):
+    # Add custom CSS to change the background color
+    bg_color_css = f"""
+        <style>
+        body {{
+            background-color: {color};
+        }}
+        </style>
     """
-    <style>
-    body {
-        background-color: black;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
+    st.markdown(bg_color_css, unsafe_allow_html=True)
+
+# Call the function to set the background color
+set_page_bg_color("#000000")
 
 # Load the trained models
 DTClassifier = pickle.load(open('PickleFiles/DecisionTree.pkl', 'rb'))
