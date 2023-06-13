@@ -2,6 +2,32 @@ import streamlit as st
 import pandas as pd
 import pickle
 from sklearn.preprocessing import LabelEncoder
+import plotly.graph_objects as go
+
+data = pd.read_csv("path/to/your/dataset.csv")
+
+fig = go.Figure(data=go.Scatter(
+    x=data['X'],  # X-axis values
+    y=data['Y'],  # Y-axis values
+    mode='markers',
+    marker=dict(
+        size=data['Size'],  # Bubble size
+        color=data['Color'],  # Bubble color
+        sizemode='diameter',
+        sizeref=0.1,
+        showscale=True
+    ),
+    text=data['Label']  # Hover text
+))
+
+fig.update_layout(
+    title='Interactive Bubble Chart',
+    xaxis=dict(title='X-axis'),
+    yaxis=dict(title='Y-axis'),
+    hovermode='closest'
+)
+
+st.plotly_chart(fig)
 
 # Load the trained models
 DTClassifier = pickle.load(open('DecisionTree.pkl', 'rb'))
