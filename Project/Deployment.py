@@ -254,12 +254,9 @@ def main():
             st.subheader("Precision:")
             st.write(precision.round(4))
         
-    with Frame1:
-        def InterVisu():
-           PlotMetrics(Metrics)
-           ExtrMetrics(ExtMet)
     if st.sidebar.button("Visualize", key = "Visualize"):
-        InterVisu()
-        
+        with Frame1:
+           PlotMetrics(Metrics)
+           ExtrMetrics(ExtMet)        
 if __name__ == "__main__":
     main()
