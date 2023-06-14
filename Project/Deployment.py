@@ -22,7 +22,6 @@ LRClassifier = pickle.load(open('PickleFiles/LogisticRegression.pkl', 'rb'))
 MLPC = pickle.load(open('PickleFiles/MLPC.pkl', 'rb'))
 
 # Load the data
-@st.cache(suppress_st_warning=True)
 def LoadData():
     return pd.read_csv("Train.csv", delimiter=";")
 
