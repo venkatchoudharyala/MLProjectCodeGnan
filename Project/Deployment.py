@@ -237,7 +237,11 @@ def main():
             st.pyplot()
         if "PrecisionRecallCurve" in Metrics:
             st.subheader("Precision-Recall Curve")
-            PrecisionRecallDisplay.from_estimator(Model,x_test,y_test)
+            precision, recall, _ = precision_recall_curve(y_test, y_pred)
+            plt.plot(recall, precision)
+            plt.xlabel("Recall")
+            plt.ylabel("Precision")
+            plt.title("Precision-Recall Curve")
             st.pyplot()
             
     if st.sidebar.button("Visualize", key = "Visualize"):
