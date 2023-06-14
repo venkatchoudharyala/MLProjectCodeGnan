@@ -251,11 +251,13 @@ def main():
     def ExtrMetrics(ExtMet):        
         # Calculate accuracy
         accuracy = accuracy_score(y_test, y_pred)
-        st.subheader("Accuracy:", accuracy)
+        st.subheader("Accuracy:")
+        st.write(accuracy.round(4))
 
         # Calculate precision
         precision = precision_score(y_test, y_pred)
-        st.subheader("Precision:", precision)
+        st.subheader("Precision:")
+        st.write(precision.round(4))
         
     if st.sidebar.button("Visualize", key = "Visualize"):
         InterVisu()
