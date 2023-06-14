@@ -212,7 +212,7 @@ def main():
     y_test = pickle.load(open('TestAndPred/YTest.pkl', 'rb'))
     x_test = pickle.load(open('TestAndPred/XTest.pkl', 'rb'))
     st.write("x_test shape:", x_test.shape)
-    st.write("y_test shape:", y_test.shape
+    st.write("y_test shape:", y_test.shape)
     if Algo == "RandomForest":
         y_pred = pickle.load(open('TestAndPred/RandomForestYPred.pkl', 'rb'))
         Model = RFClassifier
