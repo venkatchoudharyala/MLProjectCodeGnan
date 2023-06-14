@@ -196,7 +196,7 @@ def main():
         st.markdown("---")
         
         data.dropna(inplace = True)
-        Visu = px.scatter(data, x='JobSatisfaction', y='Target', size='Age', color='PercentSalaryHike',
+        Visu = px.scatter(data, x='MonthlyIncome', y='JobSatisfaction', size='Age', color='PercentSalaryHike',
                  hover_name='EmployeeID', log_x=True, title='Job Satisfaction vs Target Variable')
         st.plotly_chart(Visu)
 
