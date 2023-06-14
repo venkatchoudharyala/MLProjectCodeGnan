@@ -195,7 +195,7 @@ def main():
         st.dataframe(data)
         st.markdown("---")
         
-        fig = px.scatter(data, x='JobSatisfaction', y='Target', size='Count', color='Target',
+        fig = px.scatter(data, x='JobSatisfaction', y='Target', size='MonthlyIncome', color='Target',
                  hover_name='Age', log_x=True, title='Job Satisfaction vs Target Variable')
 
 
