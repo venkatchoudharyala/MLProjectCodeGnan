@@ -4,7 +4,6 @@ import pickle
 import time
 from sklearn.preprocessing import LabelEncoder
 import plotly.express as px
-import warnings
 
 st.set_page_config(page_title="WorkPlace Health", 
     page_icon="🧊",
@@ -95,9 +94,7 @@ WorkLoad = {
 def main():
     # Set the title and description of the app
     st.title("Workplace Stress Predictor")
-    
-    Algo = st.sidebar.selectbox("Select Algo", ("RandomForest", "DecisionTree", "SVM", "MLPC", "LogisticRegression", "KNN"))
-    
+        
     Frame1, Frame2 = st.tabs(["Predict Yours", "About Our Data"])
     
     with Frame1:
@@ -201,5 +198,46 @@ def main():
                  hover_name='EmployeeID', log_x=True, title='Job Satisfaction vs Target Variable')
         st.plotly_chart(Visu)
 
+    Algo = st.sidebar.selectbox("Select Algo", ("RandomForest", "DecisionTree", "SVM", "MLPC", "LogisticRegression", "KNN"))
+    Metrics = st.sidebar.multiselect("What Metrics to plot?", ("ConfusionMatrix","RocCurve","PrecisionRecallCurve"))
+    
+    if 'current_tab' not in st.session_state:
+        st.session_state.current_tab = "NewTab"
+     
+    y_test = pickle.load(open('/content/drive/MyDrive/CodeGnan/YTest.pkl', 'rb'))
+    if Algo == "RandomForest":
+        y_pred = pickle.load(open('TestAndPred/RandomForestYPred.pkl', 'rb'))
+        Model = RFClassifier
+    elif Algo == "DecisionTree":
+        y_pred = pickle.load(open('TestAndPred/DecisionTreeYPred.pkl', 'rb'))
+        model = DTClassifier
+    elif Algo == "SVM":
+        y_pred = pickle.load(open('TestAndPred/SVMYPred.pkl', 'rb'))
+        Model = SVM
+    elif Algo == "MLPC":
+        y_pred = pickle.load(open('TestAndPred/MLPCYPred.pkl', 'rb'))
+        Model = MLPC
+    elif Algo == "LogisticRegression":
+        y_pred = pickle.load(open('TestAndPred/LogisticRegressionYPred.pkl', 'rb'))
+        Model = LRClassifier
+    elif Algo == "KNN":
+        y_pred = pickle.load(open('TestAndPred/KNNYPred.pkl', 'rb'))
+        Model = KNN
+        
+    def PlotMetrics(Metrics):
+        if "ConfusionMatrix" in Metrics:
+            st.subheader("Confusion Matrix")
+            ConfusionMatrixDisplay.from_estimator(model,x_test,y_test)
+            st.pyplot()
+        if "RocCurve" in Metrics:
+            st.subheader("ROC Curve")
+            RocCurveDisplay.from_estimator(model,x_test,y_test)
+            st.pyplot()
+        if "PrecisionRecallCurve" in Metrics:
+            st.subheader("Precision-Recall Curve")
+            PrecisionRecallDisplay.from_estimator(model,x_test,y_test)
+            st.pyplot()
+            
+    q
 if __name__ == "__main__":
     main()
