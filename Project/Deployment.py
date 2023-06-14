@@ -188,9 +188,9 @@ def main():
                         st.balloons()
                         st.write("You are perfectly alright. Keep Rocking!!"
     with Frame2:
-        st.subheader("Our Data")
-        st.dataframe(data)
-        st.markdown("---")
+                                 st.subheader("Our Data")
+                                 st.dataframe(data)
+                                 st.markdown("---")
 
 
 if __name__ == "__main__":
