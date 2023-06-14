@@ -4,7 +4,6 @@ import pickle
 import time
 from sklearn.preprocessing import LabelEncoder
 
-st.spinner()
 st.set_page_config(page_title="WorkPlace Health", 
     page_icon="🧊",
     layout="wide",
@@ -179,14 +178,15 @@ def main():
                 LRPredicted = RFClassifier.predict(PreProUserData)
 
                 # Display the predictions
-                with st.spinner("We'r almost there.."):
+                with st.spinner("We're almost there.."):
                     time.sleep(3)
                     st.subheader("Predictions")
                     if LRPredicted == 1:
                         st.warning("You are a bit STRESSED! Take some assistance..")
                     else:
                         st.balloons()
-                        st.write("You are perfectly alright. Keep Rocking!!")                       
+                        st.write("You are perfectly alright. Keep Rocking!!") 
+
     with Frame2:
         st.subheader("Our Data")
         st.dataframe(data)
