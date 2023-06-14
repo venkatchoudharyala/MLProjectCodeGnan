@@ -222,13 +222,13 @@ def main():
         y_pred = pickle.load(open('Project/TestAndPred/RandomForestYPred.pkl', 'rb'))
         Model = RFClassifier
     elif Algo == "DecisionTree":
-        y_pred = pickle.load(open('Project/TestAndPred/DecisionTreeYPred.pkl', 'rb'))
+        y_pred = DTClassifier.predict(x_test)
         Model = DTClassifier
     elif Algo == "SVM":
-        y_pred = pickle.load(open('Project/TestAndPred/SVMYPred.pkl', 'rb'))
+        y_pred = SVM.predict(x_test)
         Model = SVM
     elif Algo == "LogisticRegression":
-        y_pred = pickle.load(open('Project/TestAndPred/LogisticRegressionYPred.pkl', 'rb'))
+        y_pred = LRClassifier(x_test)
         Model = LRClassifier
     elif Algo == "KNN":
         y_pred = KNN.predict(x_test)
