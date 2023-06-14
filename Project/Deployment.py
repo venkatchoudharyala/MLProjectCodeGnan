@@ -96,7 +96,7 @@ def main():
     # Set the title and description of the app
     st.title("Workplace Stress Predictor")
     
-    Frame1, Frame2 = st.tabs(["About Our Data", "Predict Yours"])
+    Frame1, Frame2 = st.tabs(["Predict Yours", "About Our Data"])
     
     with Frame1:
         st.subheader("Our Data")
