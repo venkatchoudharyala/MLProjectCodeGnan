@@ -186,8 +186,7 @@ def main():
                         st.warning("You are a bit STRESSED! Take some assistance..")
                     else:
                         st.balloons()
-                        st.write("You are perfectly alright. Keep Rocking!!"
-                                
+                        st.write("You are perfectly alright. Keep Rocking!!")                       
     with Frame2:
         st.subheader("Our Data")
         st.dataframe(data)
