@@ -250,8 +250,9 @@ def main():
     if st.sidebar.button("Visualize", key = "Visualize"):
         if 'current_tab' not in st.session_state:
             st.session_state.current_tab = "Frame3"
-            
-        PlotMetrics(Metrics)
+        
+        with Frame3:
+            PlotMetrics(Metrics)
         
         
 if __name__ == "__main__":
