@@ -276,7 +276,7 @@ def main():
         st.write("We can Predict an all-round mental state of the Employee..")
         st.subheader("Tech Stack")
         st.write("1) Libraries : plotly, sklearn, matplotlib, time, pandas")
-        st.write("2) Programmig Language : Python")
+        st.write("2) Programmig Language : Python3")
         st.write("3) FrameWork : Streamlit")
         
 if __name__ == "__main__":
