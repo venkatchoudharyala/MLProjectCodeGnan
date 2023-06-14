@@ -244,17 +244,13 @@ def main():
             st.subheader("Precision-Recall Curve")
             PrecisionRecallDisplay.from_estimator(Model,x_test,y_test)
             st.pyplot()
+
+    def InterVisu():
+        with Frame3:
+            PlotMetrics(Metrics)
         
     if st.sidebar.button("Visualize", key = "Visualize"):
-        if 'current_tab' not in st.session_state:
-            st.session_state.current_tab = "Frame1"
-
-        # Get the current tab
-        current_tab = st.session_state.current_tab
-        st.write(current_tab)
-
-    with Frame3:
-        PlotMetrics(Metrics)
+        InterVisu()
         
 if __name__ == "__main__":
     main()
