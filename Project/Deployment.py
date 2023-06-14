@@ -7,7 +7,7 @@ from sklearn.preprocessing import LabelEncoder
 from sklearn import metrics
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import ConfusionMatrixDisplay,RocCurveDisplay,PrecisionRecallDisplay
+from sklearn.metrics import ConfusionMatrixDisplay,RocCurveDisplay,PrecisionRecallDisplay,confusion_matrix
 from sklearn.metrics import roc_curve, precision_recall_curve, PrecisionRecallDisplay,auc
 import plotly.express as px
 
