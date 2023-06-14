@@ -105,7 +105,7 @@ def main():
         
     Frame1, Frame2, Frame3 = st.tabs(["Predict Yours", "About Our Data", "InteractiveVisual"])
     
-    with Frame 3:
+    with Frame3:
         def InterVisu():
            PlotMetrics(Metrics)
         
