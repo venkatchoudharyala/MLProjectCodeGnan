@@ -240,11 +240,11 @@ def main():
             st.pyplot()
         if "RocCurve" in Metrics:
             st.subheader("ROC Curve")
-            RocCurveDisplay.from_estimator(model,x_test,y_test)
+            RocCurveDisplay.from_estimator(Model,x_test,y_test)
             st.pyplot()
         if "PrecisionRecallCurve" in Metrics:
             st.subheader("Precision-Recall Curve")
-            PrecisionRecallDisplay.from_estimator(model,x_test,y_test)
+            PrecisionRecallDisplay.from_estimator(Model,x_test,y_test)
             st.pyplot()
             
     if st.sidebar.button("Visualize", key = "Visualize"):
