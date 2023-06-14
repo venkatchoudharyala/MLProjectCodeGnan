@@ -103,13 +103,13 @@ def main():
     # Set the title and description of the app
     st.title("Workplace Stress Predictor")
         
-    Frame1, Frame2, Frame3 = st.tabs(["Predict Yours", "About Our Data", "InteractiveVisual"])
+    Frame1, Frame2, Frame3 = st.tabs(["InteractiveVisual", "Predict Yours", "About Our Data"])
     
-    with Frame3:
+    with Frame1:
         def InterVisu():
            PlotMetrics(Metrics)
         
-    with Frame1:
+    with Frame2:
         with st.form(key="prediction_form"):
             st.write("Enter Your Details")
 
@@ -199,7 +199,7 @@ def main():
                         st.balloons()
                         st.write("You are perfectly alright. Keep Rocking!!") 
 
-    with Frame2:
+    with Frame3:
         st.subheader("Our Data")
         st.dataframe(data)
         st.markdown("---")
