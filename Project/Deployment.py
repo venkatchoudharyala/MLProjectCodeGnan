@@ -195,8 +195,8 @@ def main():
         st.dataframe(data)
         st.markdown("---")
         
-        Visu = px.scatter(data, x='JobSatisfaction', y='Target', size='MonthlyIncome', color='Target',
-                 hover_name='Age', log_x=True, title='Job Satisfaction vs Target Variable')
+        Visu = px.scatter(data, x='JobSatisfaction', y='Target', size='Age', color='Target',
+                 hover_name='MonthlyIncome', log_x=True, title='Job Satisfaction vs Target Variable')
         st.plotly_chart(Visu)
 
 if __name__ == "__main__":
