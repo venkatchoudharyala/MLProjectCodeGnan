@@ -26,7 +26,6 @@ RFClassifier = pickle.load(open('PickleFiles/RandomForest.pkl', 'rb'))
 SVM = pickle.load(open('PickleFiles/SVM.pkl', 'rb'))
 KNN = pickle.load(open('PickleFiles/KNN.pkl', 'rb'))
 LRClassifier = pickle.load(open('PickleFiles/LogisticRegression.pkl', 'rb'))
-MLPC = pickle.load(open('PickleFiles/MLPC.pkl', 'rb'))
 
 # Load the data
 def LoadData():
@@ -210,7 +209,7 @@ def main():
                  hover_name='EmployeeID', log_x=True, title='Job Satisfaction vs Target Variable')
         st.plotly_chart(Visu)
 
-    Algo = st.sidebar.selectbox("Select Algo", ("RandomForest", "DecisionTree", "SVM", "MLPC", "LogisticRegression", "KNN"))
+    Algo = st.sidebar.selectbox("Select Algo", ("RandomForest", "DecisionTree", "SVM", "LogisticRegression", "KNN"))
     Metrics = st.sidebar.multiselect("What Metrics to plot?", ("ConfusionMatrix","RocCurve","PrecisionRecallCurve"))
      
     y_test = pickle.load(open('Project/TestAndPred/YTest.pkl', 'rb'))
@@ -225,9 +224,6 @@ def main():
     elif Algo == "SVM":
         y_pred = pickle.load(open('Project/TestAndPred/SVMYPred.pkl', 'rb'))
         Model = SVM
-    elif Algo == "MLPC":
-        y_pred = pickle.load(open('Project/TestAndPred/MLPCYPred.pkl', 'rb'))
-        Model = MLPC
     elif Algo == "LogisticRegression":
         y_pred = pickle.load(open('Project/TestAndPred/LogisticRegressionYPred.pkl', 'rb'))
         Model = LRClassifier
