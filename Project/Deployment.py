@@ -258,7 +258,7 @@ def main():
         def InterVisu():
            PlotMetrics(Metrics)
            ExtrMetrics(ExtMet)
-     if st.sidebar.button("Visualize", key = "Visualize"):
+    if st.sidebar.button("Visualize", key = "Visualize"):
         InterVisu()
         
 if __name__ == "__main__":
