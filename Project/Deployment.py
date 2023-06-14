@@ -7,6 +7,7 @@ from sklearn import metrics
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import ConfusionMatrixDisplay,RocCurveDisplay,PrecisionRecallDisplay
+from sklearn.metrics import precision_recall_curve
 import plotly.express as px
 
 st.set_page_config(page_title="WorkPlace Health", 
