@@ -3,7 +3,7 @@ import pandas as pd
 import pickle
 from sklearn.preprocessing import LabelEncoder
 
-st.set_page_config(page_title="Traingenerator")
+st.set_page_config(page_title="WorkPlace Health")
 
 st.sidebar.title("Model Where Abouts..")
 
