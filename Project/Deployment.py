@@ -111,6 +111,7 @@ def main():
 
         # Get the current tab
         current_tab = st.session_state.current_tab
+        st.write(current_tab)
         with st.form(key="prediction_form"):
             st.write("Enter Your Details")
 
