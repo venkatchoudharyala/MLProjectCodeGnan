@@ -3,6 +3,10 @@ import pandas as pd
 import pickle
 import time
 from sklearn.preprocessing import LabelEncoder
+from sklearn import metrics
+from sklearn.linear_model import LogisticRegression
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import ConfusionMatrixDisplay,RocCurveDisplay,PrecisionRecallDisplay
 import plotly.express as px
 
 st.set_page_config(page_title="WorkPlace Health", 
