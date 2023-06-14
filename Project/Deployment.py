@@ -165,9 +165,6 @@ def main():
                     'YearsWithCurrManager': [YearsWithCurrManager]
                 })
 
-                st.write("Your Details")
-                st.dataframe(UserData)
-
                 le = LabelEncoder()
                 PreProUserData = pd.DataFrame()
                 for column in UserData.columns:
@@ -176,8 +173,9 @@ def main():
                         PreProUserData[column] = TempVal
                     else:
                         PreProUserData[column] = UserData[column]
+                        
+                st.write("Your Details after Pre-processing")
 
-                st.write("Preprocessed User Data")
                 st.dataframe(PreProUserData)
 
                 LRPredicted = RFClassifier.predict(PreProUserData)
