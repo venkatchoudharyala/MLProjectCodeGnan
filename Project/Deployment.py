@@ -195,9 +195,9 @@ def main():
         st.dataframe(data)
         st.markdown("---")
         
-        fig = px.scatter(data, x='JobSatisfaction', y='Target', size='MonthlyIncome', color='Target',
+        Visu = px.scatter(data, x='JobSatisfaction', y='Target', size='MonthlyIncome', color='Target',
                  hover_name='Age', log_x=True, title='Job Satisfaction vs Target Variable')
-
+        Visu.show()
 
 if __name__ == "__main__":
     main()
