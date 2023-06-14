@@ -273,11 +273,11 @@ def main():
         st.write("4) Percent salary Hike")
         st.write("5) Self Motivation level")
         st.write("6) Work life Balance etc.,")
-        st.write("We can Predict an alround mental state of the Employee..")
+        st.write("We can Predict an all-round mental state of the Employee..")
         st.subheader("Tech Stack")
-        st.write("Libraries used: plotly, sklearn, matplotlib, time, pandas")
-        st.write("Programmig Language used: Python")
-        st.write("FrameWork used:, Streamlit")
+        st.write("Libraries : plotly, sklearn, matplotlib, time, pandas")
+        st.write("Programmig Language : Python")
+        st.write("FrameWork :, Streamlit")
         
 if __name__ == "__main__":
     main()
