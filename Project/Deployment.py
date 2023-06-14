@@ -88,13 +88,13 @@ WorkLoad = {
 def main():
     # Set the title and description of the app
     st.title("Workplace Stress Predicter")
-    st.markdown("---")
     
     Frame1, Frame2 = st.tabs(["About Our Data", "Predict Yours"])
     
     with Frame1:
         st.subheader("Our Data")
         st.dataframe(data)
+        st.markdown("---")
     with Frame2:
         st.title("This app predicts workplace health")
 
