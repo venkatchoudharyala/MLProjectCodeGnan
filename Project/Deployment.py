@@ -4,6 +4,7 @@ import pickle
 from sklearn.preprocessing import LabelEncoder
 
 st.sidebar.title("Model Where Abouts..")
+st.set_page_config(page_title="Traingenerator")
 
 # Load the trained models
 DTClassifier = pickle.load(open('PickleFiles/DecisionTree.pkl', 'rb'))
