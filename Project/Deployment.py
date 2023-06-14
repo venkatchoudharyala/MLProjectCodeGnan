@@ -106,6 +106,7 @@ def main():
     Frame1, Frame2, Frame3 = st.tabs(["Predict Yours", "About Our Data", "InteractiveVisual"])
     
     with Frame1:
+        st.write(st.session_state.current_tab)
         with st.form(key="prediction_form"):
             st.write("Enter Your Details")
 
