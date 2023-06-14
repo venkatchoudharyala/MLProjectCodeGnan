@@ -240,26 +240,11 @@ def main():
             st.pyplot()
         if "RocCurve" in Metrics:
             st.subheader("ROC Curve")
-            fpr, tpr, _ = roc_curve(y_test, y_pred)
-            roc_auc = auc(fpr, tpr)
-            plt.figure()
-            plt.plot(fpr, tpr, label='ROC curve (area = %0.2f)' % roc_auc)
-            plt.plot([0, 1], [0, 1], 'k--')
-            plt.xlim([0.0, 1.0])
-            plt.ylim([0.0, 1.05])
-            plt.xlabel('False Positive Rate')
-            plt.ylabel('True Positive Rate')
-            plt.title('Receiver Operating Characteristic')
-            plt.legend(loc="lower right")
-            st.pyplot(plt.gcf())
-
+            RocCurveDisplay.from_estimator(model,x_test,y_test)
+            st.pyplot()
         if "PrecisionRecallCurve" in Metrics:
             st.subheader("Precision-Recall Curve")
-            precision, recall, _ = precision_recall_curve(y_test, y_pred)
-            plt.plot(recall, precision)
-            plt.xlabel("Recall")
-            plt.ylabel("Precision")
-            plt.title("Precision-Recall Curve")
+            PrecisionRecallDisplay.from_estimator(model,x_test,y_test)
             st.pyplot()
             
     if st.sidebar.button("Visualize", key = "Visualize"):
