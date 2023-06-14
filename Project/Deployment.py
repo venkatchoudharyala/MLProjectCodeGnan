@@ -197,7 +197,7 @@ def main():
         
         ModifiedData = data.copy()
         ModifiedData.dropna(inplace = True)
-        Visu = px.scatter(ModifiedData, x='MonthlyIncome', y='JobSatisfaction', size='Age', color='PercentSalaryHike',
+        Visu = px.scatter(ModifiedData, x='MonthlyIncome', y='JobSatisfaction', size='Age', color='Target',
                  hover_name='EmployeeID', log_x=True, title='Job Satisfaction vs Target Variable')
         st.plotly_chart(Visu)
 
