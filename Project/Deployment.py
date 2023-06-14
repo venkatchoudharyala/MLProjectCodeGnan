@@ -216,7 +216,7 @@ def main():
         Model = RFClassifier
     elif Algo == "DecisionTree":
         y_pred = pickle.load(open('TestAndPred/DecisionTreeYPred.pkl', 'rb'))
-        model = DTClassifier
+        Model = DTClassifier
     elif Algo == "SVM":
         y_pred = pickle.load(open('TestAndPred/SVMYPred.pkl', 'rb'))
         Model = SVM
