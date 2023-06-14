@@ -215,8 +215,8 @@ def main():
     Metrics = st.sidebar.multiselect("What Metrics to plot?", ("ConfusionMatrix","RocCurve","PrecisionRecallCurve"))
     ExtMet = st.sidebar.multiselect("Statistical Metrics", ("AccuracyScore", "Precision"))
      
-    y_test = pickle.load(open('Project/TestAndPred/YTest.pkl', 'rb'))
-    x_test = pickle.load(open('Project/TestAndPred/XTest.pkl', 'rb'))
+    y_test = pickle.load(open('PickleFiles/YTest.pkl', 'rb'))
+    x_test = pickle.load(open('PickleFiles/XTest.pkl', 'rb'))
 
     if Algo == "RandomForest":
         y_pred = pickle.load(open('Project/TestAndPred/RandomForestYPred.pkl', 'rb'))
