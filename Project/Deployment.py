@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import pickle
 import time
+import matplotlib.pyplot as plt
 from sklearn.preprocessing import LabelEncoder
 from sklearn import metrics
 from sklearn.linear_model import LogisticRegression
