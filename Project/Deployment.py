@@ -16,6 +16,8 @@ st.set_page_config(page_title="WorkPlace Health",
     layout="wide",
     initial_sidebar_state="expanded")
 
+st.set_option('deprecation.showPyplotGlobalUse', False)
+
 st.sidebar.title("Model Where Abouts..")
 
 # Load the trained models
