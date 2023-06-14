@@ -96,8 +96,6 @@ def main():
         st.dataframe(data)
         st.markdown("---")
     with Frame2:
-        st.title("This app predicts workplace health")
-
         with st.form(key="prediction_form"):
             st.write("Enter Your Details")
 
