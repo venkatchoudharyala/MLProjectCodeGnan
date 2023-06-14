@@ -4,6 +4,7 @@ import pickle
 import time
 from sklearn.preprocessing import LabelEncoder
 import plotly.express as px
+import warnings
 
 st.set_page_config(page_title="WorkPlace Health", 
     page_icon="🧊",
@@ -195,8 +196,8 @@ def main():
         st.dataframe(data)
         st.markdown("---")
         
-        st.set_option('deprecation.showPyplotGlobalUse', False)
-        st.set_option('deprecation.showfileUploaderEncoding', False)
+        warnings.filterwarnings("ignore", category=st.streamlit.runtime.legacy_caching.caching.CachedObjectMutationWarning)
+
         ModifiedData = data.copy()
         ModifiedData.dropna(inplace = True)
         Visu = px.scatter(ModifiedData, x='MonthlyIncome', y='JobSatisfaction', size='Age', color='Target',
