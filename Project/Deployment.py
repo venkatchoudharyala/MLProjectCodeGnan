@@ -212,6 +212,7 @@ def main():
 
     Algo = st.sidebar.selectbox("Select Algo", ("RandomForest", "DecisionTree", "SVM", "LogisticRegression", "KNN"))
     Metrics = st.sidebar.multiselect("What Metrics to plot?", ("ConfusionMatrix","RocCurve","PrecisionRecallCurve"))
+    ExtMet = st.sidebar.multiselect("More", ("AccuracyScore", "Precision"))
      
     y_test = pickle.load(open('Project/TestAndPred/YTest.pkl', 'rb'))
     x_test = pickle.load(open('Project/TestAndPred/XTest.pkl', 'rb'))
@@ -246,13 +247,14 @@ def main():
             PrecisionRecallDisplay.from_estimator(Model,x_test,y_test)
             st.pyplot()
             
+    def ExtrMetrics(ExtMet):        
         # Calculate accuracy
         accuracy = accuracy_score(y_test, y_pred)
-        print("Accuracy:", accuracy)
+        st.write("Accuracy:", accuracy)
 
         # Calculate precision
         precision = precision_score(y_test, y_pred)
-        print("Precision:", precision)
+        st.write("Precision:", precision)
         
     if st.sidebar.button("Visualize", key = "Visualize"):
         InterVisu()
