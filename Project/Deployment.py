@@ -196,7 +196,7 @@ def main():
         st.dataframe(data)
         st.markdown("---")
         
-        warnings.filterwarnings("ignore", category=st.streamlit.runtime.legacy_caching.caching.CachedObjectMutationWarning)
+        warnings.filterwarnings("ignore", module="streamlit")
 
         ModifiedData = data.copy()
         ModifiedData.dropna(inplace = True)
