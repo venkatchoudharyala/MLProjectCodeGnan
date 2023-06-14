@@ -247,16 +247,17 @@ def main():
             PrecisionRecallDisplay.from_estimator(Model,x_test,y_test)
             st.pyplot()
             
-    def ExtrMetrics(ExtMet):        
-        # Calculate accuracy
-        accuracy = accuracy_score(y_test, y_pred)
-        st.subheader("Accuracy:")
-        st.write(accuracy.round(4))
-
-        # Calculate precision
-        precision = precision_score(y_test, y_pred)
-        st.subheader("Precision:")
-        st.write(precision.round(4))
+    def ExtrMetrics(ExtMet):  
+        if "AccuracyScore" in ExtMet:
+            # Calculate accuracy
+            accuracy = accuracy_score(y_test, y_pred)
+            st.subheader("Accuracy:")
+            st.write(accuracy.round(4))
+        if "Precision" in ExtMet:
+            # Calculate precision
+            precision = precision_score(y_test, y_pred)
+            st.subheader("Precision:")
+            st.write(precision.round(4))
         
     if st.sidebar.button("Visualize", key = "Visualize"):
         InterVisu()
