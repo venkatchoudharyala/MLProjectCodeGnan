@@ -209,8 +209,8 @@ def main():
     Algo = st.sidebar.selectbox("Select Algo", ("RandomForest", "DecisionTree", "SVM", "MLPC", "LogisticRegression", "KNN"))
     Metrics = st.sidebar.multiselect("What Metrics to plot?", ("ConfusionMatrix","RocCurve","PrecisionRecallCurve"))
      
-    y_test = pickle.load(open('TestAndPred/YTest.pkl', 'rb'))
-    x_test = pickle.load(open('TestAndPred/XTest.pkl', 'rb'))
+    y_test = pickle.load(open('Project/TestAndPred/YTest.pkl', 'rb'))
+    x_test = pickle.load(open('Project/TestAndPred/XTest.pkl', 'rb'))
 
     st.write("x_test shape:", x_test.shape)
     st.write("y_test shape:", y_test.shape)
