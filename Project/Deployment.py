@@ -87,7 +87,6 @@ WorkLoad = {
 }
 
 # Streamlit App
-st.title("Hi")
 def main():
     # Set the title and description of the app
     st.title("Workplace Stress Predicter")
