@@ -3,7 +3,10 @@ import pandas as pd
 import pickle
 from sklearn.preprocessing import LabelEncoder
 
-st.set_page_config(page_title="WorkPlace Health")
+st.set_page_config(page_title="WorkPlace Health", 
+    page_icon="🧊",
+    layout="wide",
+    initial_sidebar_state="expanded")
 
 st.sidebar.title("Model Where Abouts..")
 
