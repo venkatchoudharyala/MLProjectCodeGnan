@@ -194,8 +194,6 @@ def main():
         st.subheader("Our Data")
         st.dataframe(data)
         st.markdown("---")
-        
-        warnings.filterwarnings("ignore", module="streamlit")
 
         ModifiedData = data.copy()
         ModifiedData.dropna(inplace = True)
