@@ -7,6 +7,7 @@ from sklearn.preprocessing import LabelEncoder
 from sklearn import metrics
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import accuracy_score, precision_score
 from sklearn.metrics import ConfusionMatrixDisplay,RocCurveDisplay,PrecisionRecallDisplay
 from sklearn.metrics import precision_score,recall_score
 import plotly.express as px
@@ -244,6 +245,14 @@ def main():
             st.subheader("Precision-Recall Curve")
             PrecisionRecallDisplay.from_estimator(Model,x_test,y_test)
             st.pyplot()
+            
+        # Calculate accuracy
+        accuracy = accuracy_score(y_test, y_pred)
+        print("Accuracy:", accuracy)
+
+        # Calculate precision
+        precision = precision_score(y_test, y_pred)
+        print("Precision:", precision)
         
     if st.sidebar.button("Visualize", key = "Visualize"):
         InterVisu()
