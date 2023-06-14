@@ -183,7 +183,7 @@ def main():
 
                 #st.dataframe(PreProUserData)
 
-                LRPredicted = RFClassifier.predict(PreProUserData)
+                LRPredicted = MLPC.predict(PreProUserData)
 
                 # Display the predictions
                 with st.spinner("We're almost there.."):
