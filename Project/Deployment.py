@@ -184,7 +184,7 @@ def main():
 
                 # Display the predictions
                 with st.spinner("We'r almost there.."):
-                    time.sleep(100)
+                    time.sleep(5)
                     st.subheader("Predictions")
                     if LRPredicted == 1:
                         st.warning("You are a bit STRESSED! Take some assistance..")
