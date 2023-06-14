@@ -197,7 +197,7 @@ def main():
         
         Visu = px.scatter(data, x='JobSatisfaction', y='Target', size='MonthlyIncome', color='Target',
                  hover_name='Age', log_x=True, title='Job Satisfaction vs Target Variable')
-        Visu.show()
+        st.plotly_chart(Visu)
 
 if __name__ == "__main__":
     main()
