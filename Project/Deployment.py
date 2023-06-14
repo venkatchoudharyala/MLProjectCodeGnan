@@ -257,10 +257,27 @@ def main():
     if st.sidebar.button("Visualize", key = "Visualize"):
         with Frame1:
            PlotMetrics(Metrics)
-           ExtrMetrics(ExtMet)   
+           ExtrMetrics(ExtMet)  
+           st.markdown("---")
             
     with Frame1:
-        st.subheader("Metrics Selected")
+        st.subheader("Project Abstract")
         st.markdown("---")
+        st.write("Corporate Jobs are termed as new forms of Slavery!!!!")
+        st.write("Their primary motive is to fulfill the requirements according to the Deadlines. Which inturn curtailing the personal and recreational time of the Employee. This may adversly affect Employee's Mental health. That may even deplete his performance.")
+        st.write("As we all know Prevention is better than cure, this particular application will be helping individuals and firms to track the stress levels of the Employees such that, they may be assissted time to time. This will also boost their performance and productivity. ")
+        st.subheader("Our Data model has few specific Features like:")
+        st.write("1) Job Satisfaction")
+        st.write("2) Has Flexibile Timings")
+        st.write("3) Micro-managed at work")
+        st.write("4) Percent salary Hike")
+        st.write("5) Self Motivation level")
+        st.write("6) Work life Balance etc.,")
+        st.write("We can Predict an alround mental state of the Employee..")
+        st.subheader("Tech Stack")
+        st.write("Libraries used: plotly, sklearn, matplotlib, time, pandas")
+        st.write("Programmig Language used: Python")
+        st.write("FrameWork used:, Streamlit")
+        
 if __name__ == "__main__":
     main()
