@@ -108,6 +108,7 @@ def main():
     with Frame1:
         def InterVisu():
            PlotMetrics(Metrics)
+           ExtrMetrics(ExtMet)
         
     with Frame2:
         with st.form(key="prediction_form"):
