@@ -256,8 +256,6 @@ def main():
         
     if st.sidebar.button("Visualize", key = "Visualize"):
         with Frame1:
-           st.subheader("Metrics Selected")
-           st.markdown("---")
            PlotMetrics(Metrics)
            ExtrMetrics(ExtMet)   
             
