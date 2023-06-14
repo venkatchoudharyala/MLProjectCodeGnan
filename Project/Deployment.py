@@ -105,6 +105,10 @@ def main():
         
     Frame1, Frame2, Frame3 = st.tabs(["Predict Yours", "About Our Data", "InteractiveVisual"])
     
+    with Frame 3:
+        def InterVisu():
+           PlotMetrics(Metrics)
+        
     with Frame1:
         with st.form(key="prediction_form"):
             st.write("Enter Your Details")
@@ -244,10 +248,6 @@ def main():
             st.subheader("Precision-Recall Curve")
             PrecisionRecallDisplay.from_estimator(Model,x_test,y_test)
             st.pyplot()
-
-    def InterVisu():
-        with Frame3:
-            PlotMetrics(Metrics)
         
     if st.sidebar.button("Visualize", key = "Visualize"):
         InterVisu()
