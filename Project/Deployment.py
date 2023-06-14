@@ -246,7 +246,7 @@ def main():
             st.pyplot()
         
     if st.sidebar.button("Visualize", key = "Visualize"):
-        st.session_state["current_tab"] = "Frame3"
+        st.session_state["current_tab"] = "InteractiveVisual"
 
     with Frame3:
         PlotMetrics(Metrics)
