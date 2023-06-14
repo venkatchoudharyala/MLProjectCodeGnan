@@ -228,7 +228,7 @@ def main():
         y_pred = SVM.predict(x_test)
         Model = SVM
     elif Algo == "LogisticRegression":
-        y_pred = LRClassifier(x_test)
+        y_pred = LRClassifier.predict(x_test)
         Model = LRClassifier
     elif Algo == "KNN":
         y_pred = KNN.predict(x_test)
