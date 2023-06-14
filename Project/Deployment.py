@@ -211,6 +211,8 @@ def main():
      
     y_test = pickle.load(open('TestAndPred/YTest.pkl', 'rb'))
     x_test = pickle.load(open('TestAndPred/XTest.pkl', 'rb'))
+    x_test = x_test.reshape(-1, 1)
+    y_test = y_test.reshape(-1, 1)
     st.write("x_test shape:", x_test.shape)
     st.write("y_test shape:", y_test.shape)
     if Algo == "RandomForest":
