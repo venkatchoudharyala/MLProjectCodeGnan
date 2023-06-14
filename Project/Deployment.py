@@ -182,12 +182,14 @@ def main():
                 LRPredicted = RFClassifier.predict(PreProUserData)
 
                 # Display the predictions
-                st.subheader("Predictions")
-                if LRPredicted == 1:
-                    st.warning("You are a bit STRESSED! Take some assistance..")
-                else:
-                    st.balloons()
-                    st.write("You are perfectly alright. Keep Rocking!!")
+                with st.spinner("We'r almost there.."):
+                    time.sleep(100)
+                    st.subheader("Predictions")
+                    if LRPredicted == 1:
+                        st.warning("You are a bit STRESSED! Take some assistance..")
+                    else:
+                        st.balloons()
+                        st.write("You are perfectly alright. Keep Rocking!!")
 
 
 if __name__ == "__main__":
