@@ -211,8 +211,6 @@ def main():
      
     y_test = pickle.load(open('TestAndPred/YTest.pkl', 'rb'))
     x_test = pickle.load(open('TestAndPred/XTest.pkl', 'rb'))
-    y_test = y_test.values.reshape(-1, 1)
-    x_test = x_test.values.reshape(-1, 1)
 
     if Algo == "RandomForest":
         y_pred = pickle.load(open('TestAndPred/RandomForestYPred.pkl', 'rb'))
