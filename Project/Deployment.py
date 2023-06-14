@@ -94,97 +94,98 @@ def main():
     with Frame1:
         st.subheader("Our Data")
         st.dataframe(data)
-    st.title("This app predicts workplace health")
+    with Frame2:
+        st.title("This app predicts workplace health")
 
-    with st.form(key="prediction_form"):
-        st.write("Enter Your Details")
+        with st.form(key="prediction_form"):
+            st.write("Enter Your Details")
 
-        # Create input fields for user to enter features
-        Age = int(st.number_input("Age", value = 22))
-        Education = st.slider("Education Level", 1,5,3)
-        AvgDailyHours = int(st.number_input("Average Daily Hours", value = 8))
-        Department = st.selectbox("Department", list(DptOpt.keys()))
-        EducationField = st.selectbox("Education Field", list(EduFielOpt.keys()))
-        Gender = st.selectbox("Gender", list(GenOpt.keys()))
-        HasFlexibleTimings = st.selectbox("Has Flexible Timings", list(FlexTime.keys()))
-        IsIndividualContributor = st.selectbox("Is Individual Contributor", list(ContrInd.keys()))
-        JobInvolvement = st.slider("Job Involvement", 1, 4, 2)
-        JobRole = st.selectbox("Job Role", list(JobRoleOpt.keys()))
-        JobSatisfaction = st.slider("Job Satisfaction", 1, 4, 3)
-        LeavesTaken = int(st.number_input("Leaves Taken", value = 22))
-        MaritalStatus = st.selectbox("Marital Status", list(Married.keys()))
-        MicromanagedAtWork = st.slider("Micromanaged at Work", 1, 5, 3)
-        MonthlyIncome = int(st.number_input("Monthly Income", value = 25000))
-        NumCompaniesWorked = int(st.number_input("Number of Companies Worked",value = 2))
-        PercentSalaryHike = int(st.number_input("Percent Salary Hike", value = 45))
-        PerformanceRating = st.slider("Performance Rating", 1, 4, 3)
-        RelationshipSatisfaction = st.slider("Relationship Satisfaction", 1, 4, 2)
-        RemoteWorkSatisfaction = st.selectbox("Remote Work Satisfaction", list(RemWork.keys()))
-        SelfMotivationLevel = st.slider("Self Motivation Level", 1, 4, 3)
-        TotalWorkingYears = int(st.number_input("Total Working Years", value = 2))
-        TrainingTimesLastYear = int(st.number_input("Training Times Last Year", value = 3))
-        WorkLifeBalance = st.slider("Work-Life Balance", 1, 4, 3)
-        WorkLoadLevel = st.selectbox("Work Load Level", list(WorkLoad.keys()))
-        YearsAtCompany = int(st.number_input("Years at Company",value = 2))
-        YearsSinceLastPromotion = int(st.number_input("Years Since Last Promotion", value = 2))
-        YearsWithCurrManager = int(st.number_input("Years with Current Manager", value = 1))
-        if st.form_submit_button("Predict"):
-            UserData = pd.DataFrame({
-                'Age': [Age],
-                'AvgDailyHours': [AvgDailyHours],
-                'Department': [DptOpt[Department]],
-                'Education': [Education],
-                'EducationField': [EduFielOpt[EducationField]],
-                'Gender': [GenOpt[Gender]],
-                'HasFlexibleTimings': [FlexTime[HasFlexibleTimings]],
-                'IsIndividualContributor': [ContrInd[IsIndividualContributor]],
-                'JobInvolvement': [JobInvolvement],
-                'JobRole': [JobRoleOpt[JobRole]],
-                'JobSatisfaction': [JobSatisfaction],
-                'LeavesTaken': [LeavesTaken],
-                'MaritalStatus': [Married[MaritalStatus]],
-                'MicromanagedAtWork': [MicromanagedAtWork],
-                'MonthlyIncome': [MonthlyIncome],
-                'NumCompaniesWorked': [NumCompaniesWorked],
-                'PercentSalaryHike': [PercentSalaryHike],
-                'PerformanceRating': [PerformanceRating],
-                'RelationshipSatisfaction': [RelationshipSatisfaction],
-                'RemoteWorkSatistfaction': [RemWork[RemoteWorkSatisfaction]],
-                'SelfMotivationLevel': [SelfMotivationLevel],
-                'TotalWorkingYears': [TotalWorkingYears],
-                'TrainingTimesLastYear': [TrainingTimesLastYear],
-                'WorkLifeBalance': [WorkLifeBalance],
-                'WorkLoadLevel': [WorkLoad[WorkLoadLevel]],
-                'YearsAtCompany': [YearsAtCompany],
-                'YearsSinceLastPromotion': [YearsSinceLastPromotion],
-                'YearsWithCurrManager': [YearsWithCurrManager]
-            })
+            # Create input fields for user to enter features
+            Age = int(st.number_input("Age", value = 22))
+            Education = st.slider("Education Level", 1,5,3)
+            AvgDailyHours = int(st.number_input("Average Daily Hours", value = 8))
+            Department = st.selectbox("Department", list(DptOpt.keys()))
+            EducationField = st.selectbox("Education Field", list(EduFielOpt.keys()))
+            Gender = st.selectbox("Gender", list(GenOpt.keys()))
+            HasFlexibleTimings = st.selectbox("Has Flexible Timings", list(FlexTime.keys()))
+            IsIndividualContributor = st.selectbox("Is Individual Contributor", list(ContrInd.keys()))
+            JobInvolvement = st.slider("Job Involvement", 1, 4, 2)
+            JobRole = st.selectbox("Job Role", list(JobRoleOpt.keys()))
+            JobSatisfaction = st.slider("Job Satisfaction", 1, 4, 3)
+            LeavesTaken = int(st.number_input("Leaves Taken", value = 22))
+            MaritalStatus = st.selectbox("Marital Status", list(Married.keys()))
+            MicromanagedAtWork = st.slider("Micromanaged at Work", 1, 5, 3)
+            MonthlyIncome = int(st.number_input("Monthly Income", value = 25000))
+            NumCompaniesWorked = int(st.number_input("Number of Companies Worked",value = 2))
+            PercentSalaryHike = int(st.number_input("Percent Salary Hike", value = 45))
+            PerformanceRating = st.slider("Performance Rating", 1, 4, 3)
+            RelationshipSatisfaction = st.slider("Relationship Satisfaction", 1, 4, 2)
+            RemoteWorkSatisfaction = st.selectbox("Remote Work Satisfaction", list(RemWork.keys()))
+            SelfMotivationLevel = st.slider("Self Motivation Level", 1, 4, 3)
+            TotalWorkingYears = int(st.number_input("Total Working Years", value = 2))
+            TrainingTimesLastYear = int(st.number_input("Training Times Last Year", value = 3))
+            WorkLifeBalance = st.slider("Work-Life Balance", 1, 4, 3)
+            WorkLoadLevel = st.selectbox("Work Load Level", list(WorkLoad.keys()))
+            YearsAtCompany = int(st.number_input("Years at Company",value = 2))
+            YearsSinceLastPromotion = int(st.number_input("Years Since Last Promotion", value = 2))
+            YearsWithCurrManager = int(st.number_input("Years with Current Manager", value = 1))
+            if st.form_submit_button("Predict"):
+                UserData = pd.DataFrame({
+                    'Age': [Age],
+                    'AvgDailyHours': [AvgDailyHours],
+                    'Department': [DptOpt[Department]],
+                    'Education': [Education],
+                    'EducationField': [EduFielOpt[EducationField]],
+                    'Gender': [GenOpt[Gender]],
+                    'HasFlexibleTimings': [FlexTime[HasFlexibleTimings]],
+                    'IsIndividualContributor': [ContrInd[IsIndividualContributor]],
+                    'JobInvolvement': [JobInvolvement],
+                    'JobRole': [JobRoleOpt[JobRole]],
+                    'JobSatisfaction': [JobSatisfaction],
+                    'LeavesTaken': [LeavesTaken],
+                    'MaritalStatus': [Married[MaritalStatus]],
+                    'MicromanagedAtWork': [MicromanagedAtWork],
+                    'MonthlyIncome': [MonthlyIncome],
+                    'NumCompaniesWorked': [NumCompaniesWorked],
+                    'PercentSalaryHike': [PercentSalaryHike],
+                    'PerformanceRating': [PerformanceRating],
+                    'RelationshipSatisfaction': [RelationshipSatisfaction],
+                    'RemoteWorkSatistfaction': [RemWork[RemoteWorkSatisfaction]],
+                    'SelfMotivationLevel': [SelfMotivationLevel],
+                    'TotalWorkingYears': [TotalWorkingYears],
+                    'TrainingTimesLastYear': [TrainingTimesLastYear],
+                    'WorkLifeBalance': [WorkLifeBalance],
+                    'WorkLoadLevel': [WorkLoad[WorkLoadLevel]],
+                    'YearsAtCompany': [YearsAtCompany],
+                    'YearsSinceLastPromotion': [YearsSinceLastPromotion],
+                    'YearsWithCurrManager': [YearsWithCurrManager]
+                })
 
-            st.write("Your Details")
-            st.dataframe(UserData)
+                st.write("Your Details")
+                st.dataframe(UserData)
 
-            le = LabelEncoder()
-            PreProUserData = pd.DataFrame()
-            for column in UserData.columns:
-                if UserData[column].dtype == object:
-                    TempVal = le.fit_transform(UserData[column].astype('category'))
-                    PreProUserData[column] = TempVal
-                else:
-                    PreProUserData[column] = UserData[column]
+                le = LabelEncoder()
+                PreProUserData = pd.DataFrame()
+                for column in UserData.columns:
+                    if UserData[column].dtype == object:
+                        TempVal = le.fit_transform(UserData[column].astype('category'))
+                        PreProUserData[column] = TempVal
+                    else:
+                        PreProUserData[column] = UserData[column]
 
-            st.write("Preprocessed User Data")
-            st.dataframe(PreProUserData)
+                st.write("Preprocessed User Data")
+                st.dataframe(PreProUserData)
 
-            LRPredicted = RFClassifier.predict(PreProUserData)
+                LRPredicted = RFClassifier.predict(PreProUserData)
 
-            # Display the predictions
-            with st.spinner("We'r all most there.."):
-                st.subheader("Predictions")
-                if LRPredicted == 1:
-                    st.warning("You are a bit STRESSED! Take some assistance..")
-                else:
-                    st.balloons()
-                    st.write("You are perfectly alright. Keep Rocking!!")
+                # Display the predictions
+                with st.spinner("We'r all most there.."):
+                    st.subheader("Predictions")
+                    if LRPredicted == 1:
+                        st.warning("You are a bit STRESSED! Take some assistance..")
+                    else:
+                        st.balloons()
+                        st.write("You are perfectly alright. Keep Rocking!!")
 
 
 if __name__ == "__main__":
