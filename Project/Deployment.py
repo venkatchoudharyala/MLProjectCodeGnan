@@ -205,8 +205,8 @@ def main():
     Algo = st.sidebar.selectbox("Select Algo", ("RandomForest", "DecisionTree", "SVM", "MLPC", "LogisticRegression", "KNN"))
     Metrics = st.sidebar.multiselect("What Metrics to plot?", ("ConfusionMatrix","RocCurve","PrecisionRecallCurve"))
      
-    y_test = pickle.load(open('/content/drive/MyDrive/CodeGnan/YTest.pkl', 'rb'))
-    x_test = pickle.load(open('/content/drive/MyDrive/CodeGnan/XTest.pkl', 'rb'))
+    y_test = pickle.load(open('TestAndPred/YTest.pkl', 'rb'))
+    x_test = pickle.load(open('TestAndPred/XTest.pkl', 'rb'))
     if Algo == "RandomForest":
         y_pred = pickle.load(open('TestAndPred/RandomForestYPred.pkl', 'rb'))
         Model = RFClassifier
