@@ -7,8 +7,8 @@ from sklearn.preprocessing import LabelEncoder
 from sklearn import metrics
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import ConfusionMatrixDisplay,RocCurveDisplay,PrecisionRecallDisplay,confusion_matrix
-from sklearn.metrics import roc_curve, precision_recall_curve, PrecisionRecallDisplay,auc
+from sklearn.metrics import ConfusionMatrixDisplay,RocCurveDisplay,PrecisionRecallDisplay
+from sklearn.metrics import precision_score,recall_score
 import plotly.express as px
 
 st.set_page_config(page_title="WorkPlace Health", 
