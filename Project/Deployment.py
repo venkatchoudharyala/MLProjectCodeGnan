@@ -95,7 +95,7 @@ def main():
     # Set the title and description of the app
     st.title("Workplace Stress Predictor")
         
-    Frame1, Frame2 = st.tabs(["Predict Yours", "About Our Data"])
+    Frame1, Frame2, Frame3 = st.tabs(["Predict Yours", "About Our Data", "InteractiveVisual"])
     
     with Frame1:
         with st.form(key="prediction_form"):
@@ -200,11 +200,9 @@ def main():
 
     Algo = st.sidebar.selectbox("Select Algo", ("RandomForest", "DecisionTree", "SVM", "MLPC", "LogisticRegression", "KNN"))
     Metrics = st.sidebar.multiselect("What Metrics to plot?", ("ConfusionMatrix","RocCurve","PrecisionRecallCurve"))
-    
-    if 'current_tab' not in st.session_state:
-        st.session_state.current_tab = "NewTab"
      
     y_test = pickle.load(open('/content/drive/MyDrive/CodeGnan/YTest.pkl', 'rb'))
+    x_test = pickle.load(open('/content/drive/MyDrive/CodeGnan/XTest.pkl', 'rb'))
     if Algo == "RandomForest":
         y_pred = pickle.load(open('TestAndPred/RandomForestYPred.pkl', 'rb'))
         Model = RFClassifier
@@ -238,6 +236,12 @@ def main():
             PrecisionRecallDisplay.from_estimator(model,x_test,y_test)
             st.pyplot()
             
-    q
+    if st.sidebar.button("Visualize", key = "Visualize"):
+        if 'current_tab' not in st.session_state:
+            st.session_state.current_tab = "Frame3"
+            
+        PlotMetrics(Metrics)
+        
+        
 if __name__ == "__main__":
     main()
