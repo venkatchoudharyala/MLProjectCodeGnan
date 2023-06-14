@@ -3,6 +3,7 @@ import pandas as pd
 import pickle
 import time
 from sklearn.preprocessing import LabelEncoder
+import plotly.express as px
 
 st.set_page_config(page_title="WorkPlace Health", 
     page_icon="🧊",
@@ -193,6 +194,9 @@ def main():
         st.subheader("Our Data")
         st.dataframe(data)
         st.markdown("---")
+        
+        fig = px.scatter(data, x='JobSatisfaction', y='TargetVariable', size='Count', color='TargetVariable',
+                 hover_name='EmployeeID', log_x=True, title='Job Satisfaction vs Target Variable')
 
 
 if __name__ == "__main__":
