@@ -246,8 +246,7 @@ def main():
             st.pyplot()
         
     if st.sidebar.button("Visualize", key = "Visualize"):
-        if 'current_tab' not in st.session_state:
-            st.session_state.current_tab = "Frame3"
+            st.session_state = "Frame3"
         
         with Frame3:
             PlotMetrics(Metrics)
