@@ -99,10 +99,6 @@ def main():
     Frame1, Frame2 = st.tabs(["Predict Yours", "About Our Data"])
     
     with Frame1:
-        st.subheader("Our Data")
-        st.dataframe(data)
-        st.markdown("---")
-    with Frame2:
         with st.form(key="prediction_form"):
             st.write("Enter Your Details")
 
@@ -190,7 +186,11 @@ def main():
                         st.warning("You are a bit STRESSED! Take some assistance..")
                     else:
                         st.balloons()
-                        st.write("You are perfectly alright. Keep Rocking!!")
+                        st.write("You are perfectly alright. Keep Rocking!!"
+    with Frame2:
+        st.subheader("Our Data")
+        st.dataframe(data)
+        st.markdown("---")
 
 
 if __name__ == "__main__":
