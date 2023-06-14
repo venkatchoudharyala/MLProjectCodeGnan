@@ -219,7 +219,7 @@ def main():
     x_test = pickle.load(open('PickleFiles/XTest.pkl', 'rb'))
 
     if Algo == "RandomForest":
-        y_pred = pickle.load(open('Project/TestAndPred/RandomForestYPred.pkl', 'rb'))
+        y_pred = RFClassifier.predict(x_test)
         Model = RFClassifier
     elif Algo == "DecisionTree":
         y_pred = DTClassifier.predict(x_test)
