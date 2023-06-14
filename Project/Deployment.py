@@ -92,7 +92,7 @@ WorkLoad = {
 # Streamlit App
 def main():
     # Set the title and description of the app
-    st.title("Workplace Stress Predicter")
+    st.title("Workplace Stress Predictor")
     
     Frame1, Frame2 = st.tabs(["About Our Data", "Predict Yours"])
     
