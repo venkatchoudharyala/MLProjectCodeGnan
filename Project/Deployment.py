@@ -245,11 +245,6 @@ def main():
             PrecisionRecallDisplay.from_estimator(Model,x_test,y_test)
             st.pyplot()
         
-    @st.cache(allow_output_mutation=True)
-    def initialize_session_state():
-        return {'current_tab': 'Frame3'}
-
-    state = initialize_session_state()
     if st.sidebar.button("Visualize", key = "Visualize"):
         if 'current_tab' not in st.session_state:
             st.session_state.current_tab = "Frame3"
