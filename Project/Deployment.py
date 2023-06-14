@@ -195,6 +195,8 @@ def main():
         st.dataframe(data)
         st.markdown("---")
         
+        st.set_option('deprecation.showPyplotGlobalUse', False)
+        st.set_option('deprecation.showfileUploaderEncoding', False)
         ModifiedData = data.copy()
         ModifiedData.dropna(inplace = True)
         Visu = px.scatter(ModifiedData, x='MonthlyIncome', y='JobSatisfaction', size='Age', color='Target',
