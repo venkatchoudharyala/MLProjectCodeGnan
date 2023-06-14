@@ -176,9 +176,9 @@ def main():
                     else:
                         PreProUserData[column] = UserData[column]
                         
-                st.write("Your Details after Pre-processing")
+                #st.write("Your Details after Pre-processing")
 
-                st.dataframe(PreProUserData)
+                #st.dataframe(PreProUserData)
 
                 LRPredicted = RFClassifier.predict(PreProUserData)
 
