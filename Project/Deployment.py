@@ -231,7 +231,7 @@ def main():
         y_pred = pickle.load(open('Project/TestAndPred/LogisticRegressionYPred.pkl', 'rb'))
         Model = LRClassifier
     elif Algo == "KNN":
-        y_pred = pickle.load(open('Project/TestAndPred/KNNYPred.pkl', 'rb'))
+        y_pred = KNN.predict(x_test)
         Model = KNN
         
     def PlotMetrics(Metrics):
