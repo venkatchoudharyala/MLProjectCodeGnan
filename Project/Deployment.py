@@ -246,11 +246,10 @@ def main():
             st.pyplot()
         
     if st.sidebar.button("Visualize", key = "Visualize"):
-            st.session_state = "Frame3"
-        
-        with Frame3:
-            PlotMetrics(Metrics)
-        
+        st.session_state["current_tab"] = "Frame3"
+
+    with Frame3:
+        PlotMetrics(Metrics)
         
 if __name__ == "__main__":
     main()
