@@ -88,10 +88,10 @@ WorkLoad = {
 
 # Streamlit App
 def main():
+    # Set the title and description of the app
+    st.title("Workplace Stress Predicter")
+    st.markdown("---")
     with Frame1:
-        # Set the title and description of the app
-        st.header("Workplace Stress Predicter")
-        st.markdown("---")
         st.subheader("Our Data")
         st.dataframe(data)
     with Frame2:
