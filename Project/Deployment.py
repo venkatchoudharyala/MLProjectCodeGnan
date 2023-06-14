@@ -103,11 +103,6 @@ def main():
     st.title("Workplace Stress Predictor")
         
     Frame1, Frame2, Frame3 = st.tabs(["InteractiveVisual", "Predict Yours", "About Our Data"])
-    
-    with Frame1:
-        def InterVisu():
-           PlotMetrics(Metrics)
-           ExtrMetrics(ExtMet)
         
     with Frame2:
         with st.form(key="prediction_form"):
@@ -261,6 +256,11 @@ def main():
         
     if st.sidebar.button("Visualize", key = "Visualize"):
         InterVisu()
+        
+    with Frame1:
+        def InterVisu():
+           PlotMetrics(Metrics)
+           ExtrMetrics(ExtMet)
         
 if __name__ == "__main__":
     main()
