@@ -215,22 +215,22 @@ def main():
     st.write("x_test shape:", x_test.shape)
     st.write("y_test shape:", y_test.shape)
     if Algo == "RandomForest":
-        y_pred = pickle.load(open('TestAndPred/RandomForestYPred.pkl', 'rb'))
+        y_pred = pickle.load(open('Project/TestAndPred/RandomForestYPred.pkl', 'rb'))
         Model = RFClassifier
     elif Algo == "DecisionTree":
-        y_pred = pickle.load(open('TestAndPred/DecisionTreeYPred.pkl', 'rb'))
+        y_pred = pickle.load(open('Project/TestAndPred/DecisionTreeYPred.pkl', 'rb'))
         Model = DTClassifier
     elif Algo == "SVM":
-        y_pred = pickle.load(open('TestAndPred/SVMYPred.pkl', 'rb'))
+        y_pred = pickle.load(open('Project/TestAndPred/SVMYPred.pkl', 'rb'))
         Model = SVM
     elif Algo == "MLPC":
-        y_pred = pickle.load(open('TestAndPred/MLPCYPred.pkl', 'rb'))
+        y_pred = pickle.load(open('Project/TestAndPred/MLPCYPred.pkl', 'rb'))
         Model = MLPC
     elif Algo == "LogisticRegression":
-        y_pred = pickle.load(open('TestAndPred/LogisticRegressionYPred.pkl', 'rb'))
+        y_pred = pickle.load(open('Project/TestAndPred/LogisticRegressionYPred.pkl', 'rb'))
         Model = LRClassifier
     elif Algo == "KNN":
-        y_pred = pickle.load(open('TestAndPred/KNNYPred.pkl', 'rb'))
+        y_pred = pickle.load(open('Project/TestAndPred/KNNYPred.pkl', 'rb'))
         Model = KNN
         
     def PlotMetrics(Metrics):
