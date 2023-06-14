@@ -95,6 +95,8 @@ def main():
     # Set the title and description of the app
     st.title("Workplace Stress Predictor")
     
+    Algo = st.sidebar.selectbox("Select Algo", ("RandomForest", "DecisionTree", "SVM", "MLPC", "LogisticRegression", "KNN"))
+    
     Frame1, Frame2 = st.tabs(["Predict Yours", "About Our Data"])
     
     with Frame1:
