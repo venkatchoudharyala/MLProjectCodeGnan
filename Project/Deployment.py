@@ -237,8 +237,10 @@ def main():
             st.pyplot()
         if "RocCurve" in Metrics:
             st.subheader("ROC Curve")
-            RocCurveDisplay.from_estimator(Model,x_test,y_test)
-            st.pyplot()
+            roc_curve_display = RocCurveDisplay.from_estimator(Model, x_test, y_test)
+            fig, ax = plt.subplots()
+            roc_curve_display.plot(ax=ax)
+            st.pyplot(fig)
         if "PrecisionRecallCurve" in Metrics:
             st.subheader("Precision-Recall Curve")
             precision, recall, _ = precision_recall_curve(y_test, y_pred)
