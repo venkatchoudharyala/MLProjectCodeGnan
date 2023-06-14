@@ -226,6 +226,7 @@ def main():
     elif Algo == "MLPC":
         y_pred = pickle.load(open('Project/TestAndPred/MLPCYPred.pkl', 'rb'))
         Model = MLPC
+        y_pred = MLPC.predict(x_test)
     elif Algo == "LogisticRegression":
         y_pred = pickle.load(open('Project/TestAndPred/LogisticRegressionYPred.pkl', 'rb'))
         Model = LRClassifier
