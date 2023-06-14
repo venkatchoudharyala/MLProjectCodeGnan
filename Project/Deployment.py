@@ -3,6 +3,7 @@ import pandas as pd
 import pickle
 from sklearn.preprocessing import LabelEncoder
 
+st.spinner()
 st.set_page_config(page_title="WorkPlace Health", 
     page_icon="🧊",
     layout="wide",
