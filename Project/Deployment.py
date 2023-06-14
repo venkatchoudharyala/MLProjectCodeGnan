@@ -106,12 +106,6 @@ def main():
     Frame1, Frame2, Frame3 = st.tabs(["Predict Yours", "About Our Data", "InteractiveVisual"])
     
     with Frame1:
-        if 'current_tab' not in st.session_state:
-            st.session_state.current_tab = "Frame1"
-
-        # Get the current tab
-        current_tab = st.session_state.current_tab
-        st.write(current_tab)
         with st.form(key="prediction_form"):
             st.write("Enter Your Details")
 
@@ -252,7 +246,12 @@ def main():
             st.pyplot()
         
     if st.sidebar.button("Visualize", key = "Visualize"):
-        st.session_state["current_tab"] = "InteractiveVisual"
+        if 'current_tab' not in st.session_state:
+            st.session_state.current_tab = "Frame1"
+
+        # Get the current tab
+        current_tab = st.session_state.current_tab
+        st.write(current_tab)
 
     with Frame3:
         PlotMetrics(Metrics)
