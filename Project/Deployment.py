@@ -238,10 +238,6 @@ def main():
         # Interactive Plotly graph 5: 3D scatter plot
         scatter_3d = px.scatter_3d(PreProModifiedData, x="YearsWithCurrManager", y="YearsSinceLastPromotion", z="PercentSalaryHike", color="PerformanceRating")
         scatter_3d.show()
-        
-        Visu = px.scatter(ModifiedData, x='MonthlyIncome', y='JobSatisfaction', size='Age', color='Target',
-                 hover_name='EmployeeID', log_x=True, title='Job Satisfaction vs Target Variable')
-        st.plotly_chart(Visu)
 
     Algo = st.sidebar.selectbox("Select Algo", ("RandomForest", "DecisionTree", "SVM", "LogisticRegression", "KNN"))
     Metrics = st.sidebar.multiselect("What Metrics to plot?", ("ConfusionMatrix","RocCurve","PrecisionRecallCurve"))
