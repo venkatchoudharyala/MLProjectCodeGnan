@@ -251,12 +251,12 @@ def main():
         st.markdown("---")
 
     with open("Project/ViewCount.txt", "r") as file:
-        ViewCount = file.read()
+        ViewCount = int(file.read())
         
-    #ViewCount += 1
+    ViewCount += 1
     
     with open("Project/ViewCount.txt", "w") as file:
-        file.write("ViewCount")
+        file.write(ViewCount)
         
     Algo = st.sidebar.selectbox("Select Algo", ("RandomForest", "DecisionTree", "SVM", "LogisticRegression", "KNN"))
     Metrics = st.sidebar.multiselect("What Metrics to plot?", ("ConfusionMatrix","RocCurve","PrecisionRecallCurve"))
