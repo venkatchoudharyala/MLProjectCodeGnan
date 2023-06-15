@@ -250,6 +250,12 @@ def main():
         st.plotly_chart(scatter_3d)
         st.markdown("---")
 
+    with open("Project/ViewCount.txt", "r") as file:
+        ViewCount = int(file.read())
+        
+    ViewCount += 1
+    st.write("Number of Views: ",ViewCount)
+    
     Algo = st.sidebar.selectbox("Select Algo", ("RandomForest", "DecisionTree", "SVM", "LogisticRegression", "KNN"))
     Metrics = st.sidebar.multiselect("What Metrics to plot?", ("ConfusionMatrix","RocCurve","PrecisionRecallCurve"))
     ExtMet = st.sidebar.multiselect("Statistical Metrics", ("AccuracyScore", "Precision"))
