@@ -254,8 +254,10 @@ def main():
         ViewCount = int(file.read())
         
     ViewCount += 1
-    st.sidebar.write("Number of Views: ",ViewCount)
     
+    with open("Project/ViewCount.txt", "w") as file:
+    file.write("ViewCount")
+        
     Algo = st.sidebar.selectbox("Select Algo", ("RandomForest", "DecisionTree", "SVM", "LogisticRegression", "KNN"))
     Metrics = st.sidebar.multiselect("What Metrics to plot?", ("ConfusionMatrix","RocCurve","PrecisionRecallCurve"))
     ExtMet = st.sidebar.multiselect("Statistical Metrics", ("AccuracyScore", "Precision"))
@@ -310,6 +312,8 @@ def main():
            PlotMetrics(Metrics)
            ExtrMetrics(ExtMet)  
            st.markdown("---")
+        
+    st.sidebar.write("Number of Views: ",ViewCount)
             
     with Frame1:
         st.subheader("Project Abstract")
