@@ -198,7 +198,7 @@ def main():
                 ViewCount = ViewCount + 1
     
                 with open("Project/ViewCount.txt", "w") as file:
-                    file.write(str(ViewCount))
+                    file.write("accessed")
 
                 # Display the predictions
                 with st.spinner("We're almost there.."):
