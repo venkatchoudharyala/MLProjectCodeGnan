@@ -191,6 +191,14 @@ def main():
                 #st.dataframe(PreProUserData)
 
                 LRPredicted = RFClassifier.predict(PreProUserData)
+                
+                with open("Project/ViewCount.txt", "r") as file:
+                    ViewCount = int(file.read())
+        
+                ViewCount += 1
+    
+                with open("Project/ViewCount.txt", "w") as file:
+                    file.write(str(ViewCount))
 
                 # Display the predictions
                 with st.spinner("We're almost there.."):
@@ -249,14 +257,6 @@ def main():
         scatter_3d = px.scatter_3d(PreProModifiedData, x="YearsWithCurrManager", y="YearsSinceLastPromotion", z="PercentSalaryHike", color="PerformanceRating")
         st.plotly_chart(scatter_3d)
         st.markdown("---")
-
-    with open("Project/ViewCount.txt", "r") as file:
-        ViewCount = int(file.read())
-        
-    ViewCount += 1
-    
-    with open("Project/ViewCount.txt", "w") as file:
-        file.write(str(ViewCount))
         
     Algo = st.sidebar.selectbox("Select Algo", ("RandomForest", "DecisionTree", "SVM", "LogisticRegression", "KNN"))
     Metrics = st.sidebar.multiselect("What Metrics to plot?", ("ConfusionMatrix","RocCurve","PrecisionRecallCurve"))
@@ -313,7 +313,7 @@ def main():
            ExtrMetrics(ExtMet)  
            st.markdown("---")
         
-    st.sidebar.write("Number of Views: ",ViewCount)
+    st.sidebar.write("Number of Predictions Made: ",ViewCount)
             
     with Frame1:
         st.subheader("Project Abstract")
