@@ -263,7 +263,7 @@ def main():
     with Frame1:
         st.subheader("Project Abstract")
         st.markdown("---")
-        st.write("Corporate Jobs are termed as new forms of Slavery!!!!")
+        st.write("New phase of competitive market!!!!")
         st.write("Their primary motive is to fulfill the requirements according to the Deadlines. Which inturn curtailing the personal and recreational time of the Employee. This may adversly affect Employee's Mental health. That may even deplete his performance.")
         st.write("As we all know Prevention is better than cure, this particular application will be helping individuals and firms to track the stress levels of the Employees such that, they may be assissted time to time. This will also boost their performance and productivity. ")
         st.subheader("Our Data model has few specific Features like:")
