@@ -229,18 +229,18 @@ def main():
         st.subheader("Interactive Visualization")
         st.markdown("---")
         # Interactive Plotly graph 1: Scatter plot
-        st.subheader("ScatterPlot on (Age, MonthlyIncome) and JobRole as color")
+        st.subheader("ScatterPlot on (Age, MonthlyIncome) and Target as color")
         scatter_plot = px.scatter(PreProModifiedData, x="Age", y="MonthlyIncome", log_x = True, log_y = True, size = "TotalWorkingYears", color="Target")
         st.plotly_chart(scatter_plot)
         st.markdown("----")
 
-        st.subheader("BarChart on (EducationField, TotalWorkingYears) and Department as color")
+        st.subheader("BarChart on (Education, Target) and Age as color")
         # Interactive Plotly graph 2: Bar chart
         bar_chart = px.bar(data, x="Education", y="Target", log_y = True, animation_frame = "PerformanceRating", color="Age")
         st.plotly_chart(bar_chart)
         st.markdown("---")
 
-        st.subheader("LinePlot on (YearsAtCompany, JobSatisfaction) and MaritalStatus as color")
+        st.subheader("LinePlot on (YearsAtCompany, JobInvolvement) and HasFlexibleTimings as color")
         # Interactive Plotly graph 3: Line plot
         line_plot = px.line(data, x="YearsAtCompany", y="JobInvolvement", log_x = True, log_y = True, animation_frame = "Age", color="HasFlexibleTimings")
         st.plotly_chart(line_plot)
