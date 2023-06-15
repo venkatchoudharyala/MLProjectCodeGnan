@@ -236,7 +236,7 @@ def main():
 
         st.subheader("BarChart on (EducationField, TotalWorkingYears) and Department as color")
         # Interactive Plotly graph 2: Bar chart
-        bar_chart = px.bar(PreProModifiedData, x="EducationField", y="TotalWorkingYears", color="Department")
+        bar_chart = px.bar(data, x="Education", y="Target", log_y = True, animation_frame = "PerformanceRating", color="Age")
         st.plotly_chart(bar_chart)
         st.markdown("---")
 
