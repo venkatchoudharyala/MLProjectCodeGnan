@@ -220,24 +220,34 @@ def main():
         PreProModifiedData.dropna(inplace = True)
 
         # Interactive Plotly graph 1: Scatter plot
+        st.subheader("ScatterPlot on (Age, MonthlyIncome) and JobRole as color")
         scatter_plot = px.scatter(PreProModifiedData, x="Age", y="MonthlyIncome", color="JobRole")
         st.plotly_chart(scatter_plot)
+        st.markdown("----")
 
+        st.subheader("BarChart on (EducationField, TotalWorkingYears) and Department as color")
         # Interactive Plotly graph 2: Bar chart
         bar_chart = px.bar(PreProModifiedData, x="EducationField", y="TotalWorkingYears", color="Department")
         st.plotly_chart(bar_chart)
+        st.markdown("---")
 
+        st.subheader("LinePlot on (YearsAtCompany, JobSatisfaction) and MaritalStatus as color")
         # Interactive Plotly graph 3: Line plot
         line_plot = px.line(PreProModifiedData, x="YearsAtCompany", y="JobSatisfaction", color="MaritalStatus")
         st.plotly_chart(line_plot)
+        st.markdown("---")
 
+        st.subheader("PieChart on Gender")
         # Interactive Plotly graph 4: Pie chart
         pie_chart = px.pie(PreProModifiedData, names="Gender")
         st.plotly_chart(pie_chart)
+        st.markdown("---")
 
+        st.subheader("3D-ScatterPlot on (YearsWithCurrManager, YearsSinceLastPromotion, PercentSalaryHike) and PerformanceRating as color")
         # Interactive Plotly graph 5: 3D scatter plot
         scatter_3d = px.scatter_3d(PreProModifiedData, x="YearsWithCurrManager", y="YearsSinceLastPromotion", z="PercentSalaryHike", color="PerformanceRating")
         st.plotly_chart(scatter_3d)
+        st.markdown("---")
 
     Algo = st.sidebar.selectbox("Select Algo", ("RandomForest", "DecisionTree", "SVM", "LogisticRegression", "KNN"))
     Metrics = st.sidebar.multiselect("What Metrics to plot?", ("ConfusionMatrix","RocCurve","PrecisionRecallCurve"))
