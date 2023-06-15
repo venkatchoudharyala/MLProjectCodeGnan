@@ -208,6 +208,7 @@ def main():
         st.markdown("---")
 
         ModifiedData = data.copy()
+        PreProModifiedData = pd.DataFrame()
         le = LabelEncoder()
         for column in ModifiedData.columns:
             if ModifiedData[column].dtype == object:
