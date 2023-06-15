@@ -34,6 +34,14 @@ def LoadData():
 data = LoadData()
 
 # Define the mapping dictionaries for select boxes
+Edu = {
+    "+10": 1,
+    "+12": 2,
+    "UnderGraduate": 3,
+    "PostGraduate": 4,
+    "ResearchGraduate": 5
+}
+
 EduFielOpt = {
     "Technical Degree": 0,
     "Medical": 1,
@@ -110,7 +118,7 @@ def main():
 
             # Create input fields for user to enter features
             Age = int(st.number_input("Age", value = 22))
-            Education = st.slider("Education Level", 1,5,3)
+            Education = st.selectbox("Education Level", list(Edu.keys()))
             AvgDailyHours = int(st.number_input("Average Daily Hours", value = 8))
             Department = st.selectbox("Department", list(DptOpt.keys()))
             EducationField = st.selectbox("Education Field", list(EduFielOpt.keys()))
@@ -142,7 +150,7 @@ def main():
                     'Age': [Age],
                     'AvgDailyHours': [AvgDailyHours],
                     'Department': [DptOpt[Department]],
-                    'Education': [Education],
+                    'Education': [Edu[Education]],
                     'EducationField': [EduFielOpt[EducationField]],
                     'Gender': [GenOpt[Gender]],
                     'HasFlexibleTimings': [FlexTime[HasFlexibleTimings]],
@@ -264,7 +272,7 @@ def main():
         st.subheader("Project Abstract")
         st.markdown("---")
         st.write("New phase of competitive market!!!!")
-        st.write("Their primary motive is to fulfill the requirements according to the Deadlines. Which inturn curtailing the personal and recreational time of the Employee. This may adversly affect Employee's Mental health. That may even deplete his performance.")
+        st.write("It's primary motive is to fulfill the requirements according to the Deadlines. Which inturn curtailing the personal and recreational time of the Employee. This may adversly affect Employee's Mental health. That may even deplete his performance.")
         st.write("As we all know Prevention is better than cure, this particular application will be helping individuals and firms to track the stress levels of the Employees such that, they may be assissted time to time. This will also boost their performance and productivity. ")
         st.subheader("Our Data model has few specific Features like:")
         st.write("1) Job Satisfaction")
