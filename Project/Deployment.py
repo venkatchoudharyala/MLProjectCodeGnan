@@ -251,7 +251,7 @@ def main():
         st.markdown("---")
 
     with open("Project/ViewCount.txt", "r") as file:
-        ViewCount = int(file.read())
+        ViewCount = file.read()
         
     ViewCount += 1
     
