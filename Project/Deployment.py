@@ -254,7 +254,7 @@ def main():
 
         st.subheader("3D-ScatterPlot on (YearsWithCurrManager, YearsSinceLastPromotion, PercentSalaryHike) and PerformanceRating as color")
         # Interactive Plotly graph 5: 3D scatter plot
-        scatter_3d = px.scatter_3d(PreProModifiedData, x="YearsWithCurrManager", y="YearsSinceLastPromotion", z="PercentSalaryHike", color="PerformanceRating")
+        scatter_3d = px.scatter_3d(data, x="YearsWithCurrManager", y="YearsSinceLastPromotion", z="PercentSalaryHike", log_x = True, log_y = True, animation_frame = "YearsAtCompany", color="Target")
         st.plotly_chart(scatter_3d)
         st.markdown("---")
         
