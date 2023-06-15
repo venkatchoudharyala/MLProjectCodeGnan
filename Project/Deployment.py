@@ -242,7 +242,7 @@ def main():
 
         st.subheader("LinePlot on (YearsAtCompany, JobSatisfaction) and MaritalStatus as color")
         # Interactive Plotly graph 3: Line plot
-        line_plot = px.line(PreProModifiedData, x="YearsAtCompany", y="JobSatisfaction", color="MaritalStatus")
+        line_plot = px.line(data, x="YearsAtCompany", y="JobInvolvement", log_x = True, log_y = True, animation_frame = "Age", color="HasFlexibleTimings")
         st.plotly_chart(line_plot)
         st.markdown("---")
 
