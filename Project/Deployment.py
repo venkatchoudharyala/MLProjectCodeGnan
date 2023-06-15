@@ -219,6 +219,8 @@ def main():
         PreProModifiedData.drop("EmployeeID", axis = 1, inplace = True)
         PreProModifiedData.dropna(inplace = True)
 
+        st.subheader("Visualisations")
+        st.markdown("---")
         # Interactive Plotly graph 1: Scatter plot
         st.subheader("ScatterPlot on (Age, MonthlyIncome) and JobRole as color")
         scatter_plot = px.scatter(PreProModifiedData, x="Age", y="MonthlyIncome", color="JobRole")
