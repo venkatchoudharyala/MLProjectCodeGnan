@@ -230,7 +230,7 @@ def main():
         st.markdown("---")
         # Interactive Plotly graph 1: Scatter plot
         st.subheader("ScatterPlot on (Age, MonthlyIncome) and JobRole as color")
-        scatter_plot = px.scatter(PreProModifiedData, x="Age", y="MonthlyIncome", color="JobRole")
+        scatter_plot = px.scatter(data, x="Age", y="MonthlyIncome", log_x = True, log_y = True, size = "TotalWorkingYears", color="Target")
         st.plotly_chart(scatter_plot)
         st.markdown("----")
 
