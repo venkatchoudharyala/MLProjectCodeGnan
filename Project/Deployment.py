@@ -35,9 +35,9 @@ data = LoadData()
 
 # Define the mapping dictionaries for select boxes
 Edu = {
+    "UnderGraduate": 3,
     "+10": 1,
     "+12": 2,
-    "UnderGraduate": 3,
     "PostGraduate": 4,
     "ResearchGraduate": 5
 }
