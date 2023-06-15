@@ -120,7 +120,7 @@ def main():
             Age = int(st.number_input("Age", value = 22))
             Education = st.selectbox("Education Level", list(Edu.keys()))
             AvgDailyHours = int(st.number_input("Average Daily Hours", value = 8))
-            Department = st.selectbox("Department", list(DptOpt.keys()))
+            Department = st.selectbox("Department", list(DptOpt.keys()), index = 2)
             EducationField = st.selectbox("Education Field", list(EduFielOpt.keys()))
             Gender = st.selectbox("Gender", list(GenOpt.keys()))
             HasFlexibleTimings = st.selectbox("Has Flexible Timings", list(FlexTime.keys()))
