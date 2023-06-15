@@ -312,7 +312,8 @@ def main():
            PlotMetrics(Metrics)
            ExtrMetrics(ExtMet)  
            st.markdown("---")
-        
+    with open("Project/ViewCount.txt", "r") as file:
+        ViewCount = int(file.read())   
     st.sidebar.write("Number of Predictions Made: ",ViewCount)
             
     with Frame1:
