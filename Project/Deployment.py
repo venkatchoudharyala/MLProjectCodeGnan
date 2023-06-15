@@ -256,7 +256,7 @@ def main():
     ViewCount += 1
     
     with open("Project/ViewCount.txt", "w") as file:
-        file.write(ViewCount)
+        file.write(str(ViewCount))
         
     Algo = st.sidebar.selectbox("Select Algo", ("RandomForest", "DecisionTree", "SVM", "LogisticRegression", "KNN"))
     Metrics = st.sidebar.multiselect("What Metrics to plot?", ("ConfusionMatrix","RocCurve","PrecisionRecallCurve"))
