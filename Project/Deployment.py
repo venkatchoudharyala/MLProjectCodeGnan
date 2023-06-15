@@ -254,7 +254,7 @@ def main():
         ViewCount = int(file.read())
         
     ViewCount += 1
-    st.write("Number of Views: ",ViewCount)
+    st.sidebar.write("Number of Views: ",ViewCount)
     
     Algo = st.sidebar.selectbox("Select Algo", ("RandomForest", "DecisionTree", "SVM", "LogisticRegression", "KNN"))
     Metrics = st.sidebar.multiselect("What Metrics to plot?", ("ConfusionMatrix","RocCurve","PrecisionRecallCurve"))
