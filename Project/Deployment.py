@@ -220,23 +220,23 @@ def main():
         PreProModifiedData.dropna(inplace = True)
 
         # Interactive Plotly graph 1: Scatter plot
-        scatter_plot = px.scatter(PreProModifieddata, x="Age", y="MonthlyIncome", color="JobRole")
+        scatter_plot = px.scatter(PreProModifiedData, x="Age", y="MonthlyIncome", color="JobRole")
         scatter_plot.show()
 
         # Interactive Plotly graph 2: Bar chart
-        bar_chart = px.bar(PreProModifieddata, x="EducationField", y="TotalWorkingYears", color="Department")
+        bar_chart = px.bar(PreProModifiedData, x="EducationField", y="TotalWorkingYears", color="Department")
         bar_chart.show()
 
         # Interactive Plotly graph 3: Line plot
-        line_plot = px.line(PreProModifieddata, x="YearsAtCompany", y="JobSatisfaction", color="MaritalStatus")
+        line_plot = px.line(PreProModifiedData, x="YearsAtCompany", y="JobSatisfaction", color="MaritalStatus")
         line_plot.show()
 
         # Interactive Plotly graph 4: Pie chart
-        pie_chart = px.pie(PreProModifieddata, names="Gender")
+        pie_chart = px.pie(PreProModifiedData, names="Gender")
         pie_chart.show()
 
         # Interactive Plotly graph 5: 3D scatter plot
-        scatter_3d = px.scatter_3d(PreProModifieddata, x="YearsWithCurrManager", y="YearsSinceLastPromotion", z="PercentSalaryHike", color="PerformanceRating")
+        scatter_3d = px.scatter_3d(PreProModifiedData, x="YearsWithCurrManager", y="YearsSinceLastPromotion", z="PercentSalaryHike", color="PerformanceRating")
         scatter_3d.show()
         
         Visu = px.scatter(ModifiedData, x='MonthlyIncome', y='JobSatisfaction', size='Age', color='Target',
