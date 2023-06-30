@@ -1,4 +1,4 @@
 scikit-learn
 plotly
-pandas == 2.0.3
+pandas
 matplotlib
